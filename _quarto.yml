@@ -1,0 +1,18 @@
+project:
+  type: website
+
+website:
+  title: "Linus Lach"
+  navbar:
+    right:
+      - text: Blog
+        href: blog.qmd
+      - icon: github
+        href: https://github.com/LinusLach
+
+format:
+  html:
+    theme: theme.scss
+
+
+
