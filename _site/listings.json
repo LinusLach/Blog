@@ -2,6 +2,7 @@
   {
     "listing": "/blog.html",
     "items": [
+      "/posts/post-with-code/Optimal-Control/iframes/Predator_Prey_Intro.html",
       "/posts/post-with-code/Optimal-Control/Predator_Prey_Intro.html",
       "/posts/post-with-code/index.html",
       "/posts/welcome/index.html"
