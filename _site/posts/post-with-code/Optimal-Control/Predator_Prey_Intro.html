@@ -188,8 +188,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 
 
-<section id="an-introduction-to-optimal-control-and-the-pontryagin-principle" class="level1">
-<h1>An Introduction to Optimal Control and the Pontryagin Principle</h1>
+<section id="an-introduction-to-optimal-control" class="level1">
+<h1>An Introduction to Optimal Control</h1>
 <p>This article aims to introduce the basics of <em>Optimal Control Theory</em> by discussing the Lotka-Volterra model, also known as the predator-prey model. The model in its original form describes the interaction between two species namely, predator and prey. Predatory populations can only grow if there is enough prey, so while there is a sufficient supply in prey the predators can grow in numbers. However, an increasing number in predators also leads to a decline in prey, since they might not be able to reproduce fast enough. The dynamics of the model can be represented as a system of non-linear first order differential equations given by <span class="math display">\[\begin{align*}
 &amp;\frac{\partial}{\partial t} x_1(t) = \alpha x_1(t) - \beta x_1(t)x_2(t),\\
 &amp;\frac{\partial}{\partial t} x_2(t) = \delta x_1(t)x_2(t) - \gamma x_2(t)\\
@@ -201,7 +201,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 &amp;\text{with initial conditions}\\
 &amp;x_1(0) = a, \quad x_2(0) = b,\quad a,b\in [0,1],
 \end{align*}\]</span> i.e., <span class="math inline">\(\alpha = 0.6, \beta = \delta = 1, \gamma = 1.2\)</span> and <span class="math inline">\(T = 12\)</span>. In order to give an intuition of how this system behaves depending on the initial population values, check out the following interactive plot.</p>
-<div class="cell" data-execution_count="7">
+<div class="cell" data-execution_count="1">
 <details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
@@ -211,7 +211,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="op">%</span>matplotlib inline</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-<div class="cell" data-execution_count="8">
+<div class="cell" data-execution_count="2">
 <details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> model(x):</span>
@@ -243,7 +243,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </details>
 <div class="cell-output cell-output-display">
 <script type="application/vnd.jupyter.widget-view+json">
-{"model_id":"b687930f511d48a38b9ccf74ac3ceb6e","version_major":2,"version_minor":0}
+{"version_major":2,"version_minor":0,"model_id":"f65df70e9a3a403d8b858367d4f444ca"}
 </script>
 </div>
 </div>
@@ -263,7 +263,7 @@ u(t) = \begin{cases}
             0, \quad &amp;\text{ if } t\in (7.5,12].
         \end{cases}
 \end{equation*}\]</span> A visualization of the function <span class="math inline">\(u\)</span> can be found below.</p>
-<div class="cell" data-execution_count="5">
+<div class="cell" data-execution_count="15">
 <details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> u(t):</span>
@@ -290,7 +290,7 @@ u(t) = \begin{cases}
 </div>
 </div>
 <p>The control function above is therefore decreasing the population decline whenever it takes a value in <span class="math inline">\([0,1)\)</span> and not changing the dynamics if it takes the value <span class="math inline">\(1\)</span>. The adapted system can be solved in the same fashion as before which results in different solutions depending on the starting value.</p>
-<div class="cell" data-execution_count="6">
+<div class="cell" data-execution_count="16">
 <details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> model_control_ex(t,x):</span>
@@ -321,7 +321,7 @@ u(t) = \begin{cases}
 </details>
 <div class="cell-output cell-output-display">
 <script type="application/vnd.jupyter.widget-view+json">
-{"model_id":"52bc76eda23048d0a9c3f5d332b24923","version_major":2,"version_minor":0}
+{"model_id":"cf6ffd1caf98454594beb75b0da0aae7","version_major":2,"version_minor":0}
 </script>
 </div>
 </div>
@@ -349,13 +349,13 @@ u(t) = \begin{cases}
     &amp;\text{and control conditions}\\
     &amp;u(t)\in [0,1]\quad \forall\,t \in [0,12].
 \end{align*}\]</span> Optimization problems of this nature can be solved in python by using the <code>gekko</code> package.</p>
-<div class="cell" data-execution_count="7">
+<div class="cell" data-execution_count="17">
 <details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> gekko <span class="im">import</span> GEKKO</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-<div class="cell" data-execution_count="8">
+<div class="cell" data-execution_count="18">
 <details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>m <span class="op">=</span> GEKKO(remote <span class="op">=</span> <span class="va">False</span>)</span>
@@ -380,7 +380,7 @@ u(t) = \begin{cases}
 <span id="cb6-20"><a href="#cb6-20" aria-hidden="true" tabindex="-1"></a>m.options.IMODE <span class="op">=</span> <span class="dv">6</span> <span class="co"># optimal control mode</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-<div class="cell" data-execution_count="9">
+<div class="cell" data-execution_count="19">
 <details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> plot_pp(a,b):</span>
@@ -427,7 +427,7 @@ u(t) = \begin{cases}
 </details>
 <div class="cell-output cell-output-display">
 <script type="application/vnd.jupyter.widget-view+json">
-{"model_id":"5b46b35fc1f3472da8dd91a0fccf343c","version_major":2,"version_minor":0}
+{"model_id":"45d185d4152d4bd2922f6b1f6241910e","version_major":2,"version_minor":0}
 </script>
 </div>
 </div>

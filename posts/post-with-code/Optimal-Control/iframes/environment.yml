@@ -1,14 +1,13 @@
-name: Predator_Prey
 channels:
-  - conda-forge
   - defaults
+  - conda-forge
 dependencies:
-  - python=3.8
+  - ipython
   - numpy
   - scipy
   - matplotlib
   - notebook
   - console_shortcut
   - ipywidgets
-  - gekko
-prefix: C:\Users\Rick\anaconda3\envs\Predator_Prey
+  - pip:
+    - gekko
