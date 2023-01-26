@@ -4,15 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="db237bed-056c-46b5-9347-48af7a618605" name="Changes" comment="Update_20230126_01">
+    <list default="true" id="db237bed-056c-46b5-9347-48af7a618605" name="Changes" comment="Update_20230126_02">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/_site/blog.html" beforeDir="false" afterPath="$PROJECT_DIR$/_site/blog.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_site/listings.json" beforeDir="false" afterPath="$PROJECT_DIR$/_site/listings.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/_site/posts/post-with-code/Optimal-Control/Predator_Prey_Intro.html" beforeDir="false" afterPath="$PROJECT_DIR$/_site/posts/post-with-code/Optimal-Control/Predator_Prey_Intro.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_site/posts/post-with-code/Optimal-Control/Predator_Prey_Intro_files/figure-html/cell-4-output-1.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/_site/search.json" beforeDir="false" afterPath="$PROJECT_DIR$/_site/search.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/posts/post-with-code/Optimal-Control/Predator_Prey_Intro.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/posts/post-with-code/Optimal-Control/Predator_Prey_Intro.ipynb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/posts/post-with-code/Optimal-Control/iframes/Predator_Prey_Intro.html" beforeDir="false" afterPath="$PROJECT_DIR$/posts/post-with-code/Optimal-Control/iframes/Predator_Prey_Intro.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/posts/post-with-code/Optimal-Control/iframes/Predator_Prey_Intro.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/posts/post-with-code/Optimal-Control/iframes/Predator_Prey_Intro.ipynb" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -58,7 +57,7 @@
       <workItem from="1674683124167" duration="57000" />
       <workItem from="1674683210506" duration="145000" />
       <workItem from="1674683368663" duration="657000" />
-      <workItem from="1674720828467" duration="5273000" />
+      <workItem from="1674720828467" duration="8169000" />
     </task>
     <task id="LOCAL-00001" summary="Update_20230126_01">
       <created>1674742098540</created>
@@ -67,7 +66,14 @@
       <option name="project" value="LOCAL" />
       <updated>1674742098540</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Update_20230126_02">
+      <created>1674744092488</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1674744092488</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -86,6 +92,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Update_20230126_01" />
-    <option name="LAST_COMMIT_MESSAGE" value="Update_20230126_01" />
+    <MESSAGE value="Update_20230126_02" />
+    <option name="LAST_COMMIT_MESSAGE" value="Update_20230126_02" />
   </component>
 </project>
