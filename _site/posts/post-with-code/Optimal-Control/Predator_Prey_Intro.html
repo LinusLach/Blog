@@ -6,6 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Linus Lach">
+<meta name="dcterms.date" content="2023-01-27">
 
 <title>Linus Lach - An Introduction to Optimal Control</title>
 <style>
@@ -166,13 +168,29 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
       <h1 class="title">An Introduction to Optimal Control</h1>
-                      </div>
+                                <div class="quarto-categories">
+                <div class="quarto-category">Python</div>
+                <div class="quarto-category">Optimal Control</div>
+              </div>
+                  </div>
   </div>
     
   
   <div class="quarto-title-meta">
 
+      <div>
+      <div class="quarto-title-meta-heading">Author</div>
+      <div class="quarto-title-meta-contents">
+               <p>Linus Lach </p>
+            </div>
+    </div>
       
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">January 27, 2023</p>
+      </div>
+    </div>
     
       
     </div>
@@ -200,7 +218,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 &amp;\frac{\partial}{\partial t} x_2(t) = - x_2(t) + x_1(t)x_2(t) - 0.2x_2(t) \\
 &amp;\text{with initial conditions}\\
 &amp;x_1(0) = a, \quad x_2(0) = b,\quad a,b\in [0,1],
-\end{align*}\]</span> i.e., <span class="math inline">\(\alpha = 0.6, \beta = \delta = 1, \gamma = 1.2\)</span> and <span class="math inline">\(T = 12\)</span>. In order to give an intuition of how this system behaves depending on the initial population values, check out the following interactive plot.</p>
+\end{align*}\]</span> i.e., <span class="math inline">\(\alpha = 0.6, \beta = \delta = 1, \gamma = 1.2\)</span> and <span class="math inline">\(T = 12\)</span>. In order to give an intuition of how this system behaves depending on the initial population values, check out the following interactive plot (it might take a while to load) or the static version below.</p>
 <div class="cell" data-execution_count="3">
 <details>
 <summary>Code</summary>
@@ -212,7 +230,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="op">%</span>matplotlib inline</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-<div class="cell" data-execution_count="4">
+<div class="cell" data-execution_count="6">
 <details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> model(x):</span>
@@ -244,11 +262,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </details>
 <div class="cell-output cell-output-display">
 <script type="application/vnd.jupyter.widget-view+json">
-{"version_major":2,"version_minor":0,"model_id":"83ced1b4ec4b4682af9f72f2d61b437c"}
+{"version_major":2,"version_minor":0,"model_id":"12abdbe25bb949d1b703de417d24ded3"}
 </script>
 </div>
 </div>
-<iframe src="https://linuslach.github.io/iframes/Predator_Prey_Intro.html" width="500" height="600">
+<iframe src="https://linuslach.github.io/iframes/Predator_Prey_Intro.html" width="100%" height="600">
 </iframe>
 <p>Recall that the goal is to stabilize both populations over time and eventually have both populations approaching the same value. Given the evolution of the model, the idea is to introduce some sort of control function that either additionally increases or decreases the population evolution in order achieve the goal. In our given model we can incorporate such a function as follows. <span class="math display">\[\begin{align*}
 &amp;\frac{\partial}{\partial t} x_1(t) = x_1(t) - x_1(t)x_2(t) - 0.4u(t)x_1(t),\\

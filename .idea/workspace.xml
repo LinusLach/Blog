@@ -7,9 +7,12 @@
     <list default="true" id="db237bed-056c-46b5-9347-48af7a618605" name="Changes" comment="Update_20230127_01">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/_site/blog.html" beforeDir="false" afterPath="$PROJECT_DIR$/_site/blog.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_site/listings.json" beforeDir="false" afterPath="$PROJECT_DIR$/_site/listings.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/_site/posts/post-with-code/Optimal-Control/Predator_Prey_Intro.html" beforeDir="false" afterPath="$PROJECT_DIR$/_site/posts/post-with-code/Optimal-Control/Predator_Prey_Intro.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/_site/search.json" beforeDir="false" afterPath="$PROJECT_DIR$/_site/search.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/posts/post-with-code/Optimal-Control/Predator_Prey_Intro.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/posts/post-with-code/Optimal-Control/Predator_Prey_Intro.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/posts/post-with-code/image.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/posts/post-with-code/Optimal-Control/image.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/posts/post-with-code/index.qmd" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,6 +45,11 @@
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Rick\Documents\Blog\posts\post-with-code\Optimal-Control" />
+    </key>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -57,7 +65,7 @@
       <workItem from="1674683368663" duration="657000" />
       <workItem from="1674720828467" duration="13170000" />
       <workItem from="1674812721313" duration="1001000" />
-      <workItem from="1674837991780" duration="3193000" />
+      <workItem from="1674837991780" duration="5424000" />
     </task>
     <task id="LOCAL-00001" summary="Update_20230126_01">
       <created>1674742098540</created>
@@ -94,7 +102,14 @@
       <option name="project" value="LOCAL" />
       <updated>1674838833242</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Update_20230127_01">
+      <created>1674841718348</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1674841718348</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
