@@ -201,65 +201,71 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 &amp;\text{with initial conditions}\\
 &amp;x_1(0) = a, \quad x_2(0) = b,\quad a,b\in [0,1],
 \end{align*}\]</span> i.e., <span class="math inline">\(\alpha = 0.6, \beta = \delta = 1, \gamma = 1.2\)</span> and <span class="math inline">\(T = 12\)</span>. In order to give an intuition of how this system behaves depending on the initial population values, check out the following interactive plot.</p>
-
-
-<iframe id="github-iframe" src="" style="width:1000px;height:1000px;">
+<iframe srcdoc="<html><body><script src=&quot;https://github.com/LinusLach/Blog/blob/master/posts/post-with-code/Optimal-Control/iframes/Predator_Prey_Intro.html&quot;></script></body></html>">
 </iframe>
-<script>
-        fetch('https://api.github.com/repos/LinusLach/Blog/contents/posts/post-with-code/Optimal-Control/iframes/Predator_Prey_Intro.html')
-            .then(function(response) {
-                return response.json();
-            }).then(function(data) {
-                iframe = document.getElementById('github-iframe');
-                iframe.src = 'data:text/html;base64,' + encodeURIComponent(data['content']);
-            });
-    </script>
-
-
-<div class="cell" data-execution_count="7">
+<div class="cell" data-execution_count="1">
 <details>
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy.integrate <span class="im">import</span> solve_ivp</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> ipywidgets <span class="im">import</span> interact, widgets, Layout</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> IPython.display <span class="im">import</span> IFrame</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="op">%</span>matplotlib inline</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">#&lt;html&gt;</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&lt;body&gt;</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co">#    &lt;iframe id="github-iframe" src="" style="width:1000px;height:1000px;"&gt;&lt;/iframe&gt;</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co">#    &lt;script&gt;</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co">#        fetch('https://api.github.com/repos/LinusLach/Blog/contents/posts/post-with-code/Optimal#%-Control/iframes/Predator_Prey_Intro.html')</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co">#            .then(function(response) {</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="co">#                return response.json();</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="co">#            }).then(function(data) {</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="co">#                iframe = document.getElementById('github-iframe');</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="co">#                iframe.src = 'data:text/html;base64,' + encodeURIComponent(data['content']);</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="co">#            });</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="co">#    &lt;/script&gt;</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&lt;/body&gt;</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&lt;/html&gt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 <div class="cell" data-execution_count="2">
 <details>
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> model(x):</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> np.array([x[<span class="dv">0</span>]<span class="op">-</span>x[<span class="dv">0</span>]<span class="op">*</span>x[<span class="dv">1</span>]<span class="op">-</span><span class="fl">0.4</span><span class="op">*</span>x[<span class="dv">0</span>],</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>                     <span class="op">-</span>x[<span class="dv">1</span>]<span class="op">+</span>x[<span class="dv">0</span>]<span class="op">*</span>x[<span class="dv">1</span>]<span class="op">-</span><span class="fl">0.2</span><span class="op">*</span>x[<span class="dv">1</span>]])</span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> plot_pp(a,b):</span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>    t0 <span class="op">=</span> <span class="dv">0</span></span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>    tmax <span class="op">=</span> <span class="dv">12</span></span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>    sol <span class="op">=</span> solve_ivp(<span class="kw">lambda</span> t, x:model(x), [t0, tmax], np.array([a,b]), t_eval<span class="op">=</span>np.linspace(t0, tmax, <span class="dv">100</span>))</span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>    plt.subplot(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">1</span>)</span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>    plt.plot(sol.t,sol.y[<span class="dv">0</span>], label <span class="op">=</span> <span class="st">'Prey'</span>)</span>
-<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>    plt.plot(sol.t,sol.y[<span class="dv">1</span>], label <span class="op">=</span> <span class="st">'Predator'</span>)</span>
-<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>    plt.xlabel(<span class="st">"time"</span>)</span>
-<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>    plt.ylabel(<span class="st">"population"</span>)</span>
-<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>    plt.title(<span class="st">"Solution of the ODE system"</span>)</span>
-<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>    plt.legend()</span>
-<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>    plt.subplot(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">2</span>)</span>
-<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>    plt.plot(sol.y[<span class="dv">1</span>],sol.y[<span class="dv">0</span>], label <span class="op">=</span> <span class="st">'Prey'</span>, color <span class="op">=</span> <span class="st">"r"</span>)</span>
-<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>    plt.rcParams[<span class="st">"figure.figsize"</span>]<span class="op">=</span><span class="dv">10</span>,<span class="dv">5</span></span>
-<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>    plt.title(<span class="st">"Phase portrait of the solution"</span>)</span>
-<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>    plt.xlabel(<span class="st">"predator population"</span>)</span>
-<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>    plt.ylabel(<span class="st">"prey population"</span>)</span>
-<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a>style <span class="op">=</span> {<span class="st">'description_width'</span>: <span class="st">'initial'</span>}</span>
-<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a>layout <span class="op">=</span> Layout(width <span class="op">=</span> <span class="st">"400px"</span>)</span>
-<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a>slid1 <span class="op">=</span> widgets.FloatSlider(description <span class="op">=</span> <span class="st">'Initial Prey Population'</span>,<span class="bu">min</span><span class="op">=</span><span class="dv">0</span>, <span class="bu">max</span><span class="op">=</span><span class="dv">1</span>, step<span class="op">=</span><span class="fl">0.1</span>, value<span class="op">=</span><span class="fl">0.5</span>,style <span class="op">=</span> style, layout <span class="op">=</span> layout)</span>
-<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a>slid2 <span class="op">=</span> widgets.FloatSlider(description <span class="op">=</span> <span class="st">'Initial Predator Population'</span>,<span class="bu">min</span><span class="op">=</span><span class="dv">0</span>, <span class="bu">max</span><span class="op">=</span><span class="dv">1</span>, step<span class="op">=</span><span class="fl">0.1</span>, value<span class="op">=</span><span class="fl">0.7</span>, style <span class="op">=</span> style, layout <span class="op">=</span> layout)</span>
-<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a>interact(plot_pp, a<span class="op">=</span> slid1 ,b<span class="op">=</span>slid2)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy.integrate <span class="im">import</span> solve_ivp</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> ipywidgets <span class="im">import</span> interact, widgets, Layout</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> IPython.display <span class="im">import</span> IFrame</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="op">%</span>matplotlib inline</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<div class="cell" data-execution_count="3">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> model(x):</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> np.array([x[<span class="dv">0</span>]<span class="op">-</span>x[<span class="dv">0</span>]<span class="op">*</span>x[<span class="dv">1</span>]<span class="op">-</span><span class="fl">0.4</span><span class="op">*</span>x[<span class="dv">0</span>],</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>                     <span class="op">-</span>x[<span class="dv">1</span>]<span class="op">+</span>x[<span class="dv">0</span>]<span class="op">*</span>x[<span class="dv">1</span>]<span class="op">-</span><span class="fl">0.2</span><span class="op">*</span>x[<span class="dv">1</span>]])</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> plot_pp(a,b):</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>    t0 <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>    tmax <span class="op">=</span> <span class="dv">12</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>    sol <span class="op">=</span> solve_ivp(<span class="kw">lambda</span> t, x:model(x), [t0, tmax], np.array([a,b]), t_eval<span class="op">=</span>np.linspace(t0, tmax, <span class="dv">100</span>))</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>    plt.subplot(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">1</span>)</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>    plt.plot(sol.t,sol.y[<span class="dv">0</span>], label <span class="op">=</span> <span class="st">'Prey'</span>)</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>    plt.plot(sol.t,sol.y[<span class="dv">1</span>], label <span class="op">=</span> <span class="st">'Predator'</span>)</span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>    plt.xlabel(<span class="st">"time"</span>)</span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>    plt.ylabel(<span class="st">"population"</span>)</span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>    plt.title(<span class="st">"Solution of the ODE system"</span>)</span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>    plt.legend()</span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>    plt.subplot(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">2</span>)</span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>    plt.plot(sol.y[<span class="dv">1</span>],sol.y[<span class="dv">0</span>], label <span class="op">=</span> <span class="st">'Prey'</span>, color <span class="op">=</span> <span class="st">"r"</span>)</span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>    plt.rcParams[<span class="st">"figure.figsize"</span>]<span class="op">=</span><span class="dv">10</span>,<span class="dv">5</span></span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>    plt.title(<span class="st">"Phase portrait of the solution"</span>)</span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a>    plt.xlabel(<span class="st">"predator population"</span>)</span>
+<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a>    plt.ylabel(<span class="st">"prey population"</span>)</span>
+<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a>style <span class="op">=</span> {<span class="st">'description_width'</span>: <span class="st">'initial'</span>}</span>
+<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a>layout <span class="op">=</span> Layout(width <span class="op">=</span> <span class="st">"400px"</span>)</span>
+<span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a>slid1 <span class="op">=</span> widgets.FloatSlider(description <span class="op">=</span> <span class="st">'Initial Prey Population'</span>,<span class="bu">min</span><span class="op">=</span><span class="dv">0</span>, <span class="bu">max</span><span class="op">=</span><span class="dv">1</span>, step<span class="op">=</span><span class="fl">0.1</span>, value<span class="op">=</span><span class="fl">0.5</span>,style <span class="op">=</span> style, layout <span class="op">=</span> layout)</span>
+<span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a>slid2 <span class="op">=</span> widgets.FloatSlider(description <span class="op">=</span> <span class="st">'Initial Predator Population'</span>,<span class="bu">min</span><span class="op">=</span><span class="dv">0</span>, <span class="bu">max</span><span class="op">=</span><span class="dv">1</span>, step<span class="op">=</span><span class="fl">0.1</span>, value<span class="op">=</span><span class="fl">0.7</span>, style <span class="op">=</span> style, layout <span class="op">=</span> layout)</span>
+<span id="cb3-26"><a href="#cb3-26" aria-hidden="true" tabindex="-1"></a>interact(plot_pp, a<span class="op">=</span> slid1 ,b<span class="op">=</span>slid2)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-display">
 <script type="application/vnd.jupyter.widget-view+json">
-{"model_id":"f65df70e9a3a403d8b858367d4f444ca","version_major":2,"version_minor":0}
+{"version_major":2,"version_minor":0,"model_id":"24e2c79a02b543208e8ea1e326f87bf5"}
 </script>
 </div>
 </div>
@@ -282,58 +288,58 @@ u(t) = \begin{cases}
 <div class="cell" data-execution_count="15">
 <details>
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> u(t):</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="dv">0</span><span class="op">&lt;=</span> t <span class="op">&lt;=</span> <span class="dv">2</span>:</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="dv">0</span></span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">elif</span> <span class="dv">2</span><span class="op">&lt;</span> t <span class="op">&lt;=</span> <span class="fl">4.5</span>:</span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="dv">1</span></span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">elif</span> <span class="fl">4.5</span><span class="op">&lt;</span> t <span class="op">&lt;=</span><span class="fl">7.5</span>:</span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="fl">0.5</span></span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span>:</span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="dv">0</span></span>
-<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>vu <span class="op">=</span> np.vectorize(u,otypes<span class="op">=</span>[np.float64])</span>
-<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>t <span class="op">=</span> np.linspace(<span class="dv">0</span>,<span class="dv">12</span>,<span class="dv">100</span>)</span>
-<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>plt.plot(t,vu(t), label <span class="op">=</span> <span class="st">'u(t)'</span>)</span>
-<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">"time"</span>)</span>
-<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">"control value"</span>)</span>
-<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">"control function"</span>)</span>
-<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>plt.rcParams[<span class="st">"figure.figsize"</span>]<span class="op">=</span><span class="dv">5</span>,<span class="dv">5</span></span>
-<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>plt.legend()<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> u(t):</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="dv">0</span><span class="op">&lt;=</span> t <span class="op">&lt;=</span> <span class="dv">2</span>:</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="dv">0</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">elif</span> <span class="dv">2</span><span class="op">&lt;</span> t <span class="op">&lt;=</span> <span class="fl">4.5</span>:</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="dv">1</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">elif</span> <span class="fl">4.5</span><span class="op">&lt;</span> t <span class="op">&lt;=</span><span class="fl">7.5</span>:</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="fl">0.5</span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span>:</span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="dv">0</span></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>vu <span class="op">=</span> np.vectorize(u,otypes<span class="op">=</span>[np.float64])</span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>t <span class="op">=</span> np.linspace(<span class="dv">0</span>,<span class="dv">12</span>,<span class="dv">100</span>)</span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>plt.plot(t,vu(t), label <span class="op">=</span> <span class="st">'u(t)'</span>)</span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">"time"</span>)</span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">"control value"</span>)</span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">"control function"</span>)</span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>plt.rcParams[<span class="st">"figure.figsize"</span>]<span class="op">=</span><span class="dv">5</span>,<span class="dv">5</span></span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a>plt.legend()<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-display">
-<p><img src="Predator_Prey_Intro_files/figure-html/cell-4-output-1.png" class="img-fluid"></p>
+<p><img src="Predator_Prey_Intro_files/figure-html/cell-5-output-1.png" class="img-fluid"></p>
 </div>
 </div>
 <p>The control function above is therefore decreasing the population decline whenever it takes a value in <span class="math inline">\([0,1)\)</span> and not changing the dynamics if it takes the value <span class="math inline">\(1\)</span>. The adapted system can be solved in the same fashion as before which results in different solutions depending on the starting value.</p>
 <div class="cell" data-execution_count="16">
 <details>
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> model_control_ex(t,x):</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> np.array([x[<span class="dv">0</span>]<span class="op">-</span>x[<span class="dv">0</span>]<span class="op">*</span>x[<span class="dv">1</span>]<span class="op">-</span><span class="fl">0.4</span><span class="op">*</span>x[<span class="dv">0</span>]<span class="op">*</span>u(t), <span class="op">-</span>x[<span class="dv">1</span>]<span class="op">+</span>x[<span class="dv">0</span>]<span class="op">*</span>x[<span class="dv">1</span>]<span class="op">-</span><span class="fl">0.2</span><span class="op">*</span>x[<span class="dv">1</span>]<span class="op">*</span>u(t)])</span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> plot_pp(a,b):</span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>    t0 <span class="op">=</span> <span class="dv">0</span></span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>    tmax <span class="op">=</span> <span class="dv">12</span></span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>    sol <span class="op">=</span> solve_ivp(<span class="kw">lambda</span> t, x:model_control_ex(t,x), [t0, tmax], np.array([a,b]), t_eval<span class="op">=</span>np.linspace(t0, tmax, <span class="dv">100</span>))</span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>    plt.subplot(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">1</span>)</span>
-<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>    plt.plot(sol.t,sol.y[<span class="dv">0</span>], label <span class="op">=</span> <span class="st">'Prey'</span>)</span>
-<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>    plt.plot(sol.t,sol.y[<span class="dv">1</span>], label <span class="op">=</span> <span class="st">'Predator'</span>)</span>
-<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>    plt.xlabel(<span class="st">"time"</span>)</span>
-<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>    plt.ylabel(<span class="st">"population"</span>)</span>
-<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>    plt.title(<span class="st">"Solution of the ODE system"</span>)</span>
-<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>    plt.legend()</span>
-<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>    plt.subplot(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">2</span>)</span>
-<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>    plt.plot(sol.y[<span class="dv">1</span>],sol.y[<span class="dv">0</span>], label <span class="op">=</span> <span class="st">'Prey'</span>, color <span class="op">=</span> <span class="st">"r"</span>)</span>
-<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>    plt.rcParams[<span class="st">"figure.figsize"</span>]<span class="op">=</span><span class="dv">10</span>,<span class="dv">5</span></span>
-<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>    plt.title(<span class="st">"Phase portrait of the solution"</span>)</span>
-<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a>    plt.xlabel(<span class="st">"predator population"</span>)</span>
-<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a>    plt.ylabel(<span class="st">"prey population"</span>)</span>
-<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a>style <span class="op">=</span> {<span class="st">'description_width'</span>: <span class="st">'initial'</span>}</span>
-<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a>layout <span class="op">=</span> Layout(width <span class="op">=</span> <span class="st">"400px"</span>)</span>
-<span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a>slid1 <span class="op">=</span> widgets.FloatSlider(description <span class="op">=</span> <span class="st">'Initial Prey Population'</span>,<span class="bu">min</span><span class="op">=</span><span class="dv">0</span>, <span class="bu">max</span><span class="op">=</span><span class="dv">1</span>, step<span class="op">=</span><span class="fl">0.1</span>, value<span class="op">=</span><span class="fl">0.5</span>,style <span class="op">=</span> style, layout <span class="op">=</span> layout)</span>
-<span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a>slid2 <span class="op">=</span> widgets.FloatSlider(description <span class="op">=</span> <span class="st">'Initial Predator Population'</span>,<span class="bu">min</span><span class="op">=</span><span class="dv">0</span>, <span class="bu">max</span><span class="op">=</span><span class="dv">1</span>, step<span class="op">=</span><span class="fl">0.1</span>, value<span class="op">=</span><span class="fl">0.7</span>, style <span class="op">=</span> style, layout <span class="op">=</span> layout)</span>
-<span id="cb4-25"><a href="#cb4-25" aria-hidden="true" tabindex="-1"></a>interact(plot_pp, a<span class="op">=</span> slid1 ,b<span class="op">=</span>slid2)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> model_control_ex(t,x):</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> np.array([x[<span class="dv">0</span>]<span class="op">-</span>x[<span class="dv">0</span>]<span class="op">*</span>x[<span class="dv">1</span>]<span class="op">-</span><span class="fl">0.4</span><span class="op">*</span>x[<span class="dv">0</span>]<span class="op">*</span>u(t), <span class="op">-</span>x[<span class="dv">1</span>]<span class="op">+</span>x[<span class="dv">0</span>]<span class="op">*</span>x[<span class="dv">1</span>]<span class="op">-</span><span class="fl">0.2</span><span class="op">*</span>x[<span class="dv">1</span>]<span class="op">*</span>u(t)])</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> plot_pp(a,b):</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>    t0 <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>    tmax <span class="op">=</span> <span class="dv">12</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>    sol <span class="op">=</span> solve_ivp(<span class="kw">lambda</span> t, x:model_control_ex(t,x), [t0, tmax], np.array([a,b]), t_eval<span class="op">=</span>np.linspace(t0, tmax, <span class="dv">100</span>))</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>    plt.subplot(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">1</span>)</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>    plt.plot(sol.t,sol.y[<span class="dv">0</span>], label <span class="op">=</span> <span class="st">'Prey'</span>)</span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>    plt.plot(sol.t,sol.y[<span class="dv">1</span>], label <span class="op">=</span> <span class="st">'Predator'</span>)</span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>    plt.xlabel(<span class="st">"time"</span>)</span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>    plt.ylabel(<span class="st">"population"</span>)</span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>    plt.title(<span class="st">"Solution of the ODE system"</span>)</span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>    plt.legend()</span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>    plt.subplot(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">2</span>)</span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>    plt.plot(sol.y[<span class="dv">1</span>],sol.y[<span class="dv">0</span>], label <span class="op">=</span> <span class="st">'Prey'</span>, color <span class="op">=</span> <span class="st">"r"</span>)</span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a>    plt.rcParams[<span class="st">"figure.figsize"</span>]<span class="op">=</span><span class="dv">10</span>,<span class="dv">5</span></span>
+<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a>    plt.title(<span class="st">"Phase portrait of the solution"</span>)</span>
+<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a>    plt.xlabel(<span class="st">"predator population"</span>)</span>
+<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a>    plt.ylabel(<span class="st">"prey population"</span>)</span>
+<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a>style <span class="op">=</span> {<span class="st">'description_width'</span>: <span class="st">'initial'</span>}</span>
+<span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a>layout <span class="op">=</span> Layout(width <span class="op">=</span> <span class="st">"400px"</span>)</span>
+<span id="cb5-23"><a href="#cb5-23" aria-hidden="true" tabindex="-1"></a>slid1 <span class="op">=</span> widgets.FloatSlider(description <span class="op">=</span> <span class="st">'Initial Prey Population'</span>,<span class="bu">min</span><span class="op">=</span><span class="dv">0</span>, <span class="bu">max</span><span class="op">=</span><span class="dv">1</span>, step<span class="op">=</span><span class="fl">0.1</span>, value<span class="op">=</span><span class="fl">0.5</span>,style <span class="op">=</span> style, layout <span class="op">=</span> layout)</span>
+<span id="cb5-24"><a href="#cb5-24" aria-hidden="true" tabindex="-1"></a>slid2 <span class="op">=</span> widgets.FloatSlider(description <span class="op">=</span> <span class="st">'Initial Predator Population'</span>,<span class="bu">min</span><span class="op">=</span><span class="dv">0</span>, <span class="bu">max</span><span class="op">=</span><span class="dv">1</span>, step<span class="op">=</span><span class="fl">0.1</span>, value<span class="op">=</span><span class="fl">0.7</span>, style <span class="op">=</span> style, layout <span class="op">=</span> layout)</span>
+<span id="cb5-25"><a href="#cb5-25" aria-hidden="true" tabindex="-1"></a>interact(plot_pp, a<span class="op">=</span> slid1 ,b<span class="op">=</span>slid2)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-display">
 <script type="application/vnd.jupyter.widget-view+json">
@@ -368,78 +374,78 @@ u(t) = \begin{cases}
 <div class="cell" data-execution_count="17">
 <details>
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> gekko <span class="im">import</span> GEKKO</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> gekko <span class="im">import</span> GEKKO</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 <div class="cell" data-execution_count="18">
 <details>
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>m <span class="op">=</span> GEKKO(remote <span class="op">=</span> <span class="va">False</span>)</span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>n <span class="op">=</span> <span class="dv">100</span></span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>T <span class="op">=</span> <span class="dv">12</span></span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>m.time <span class="op">=</span> np.linspace(<span class="dv">0</span>,T,n)</span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> <span class="fl">0.2</span><span class="op">;</span> b<span class="op">=</span><span class="fl">0.5</span><span class="op">;</span> y0 <span class="op">=</span> <span class="dv">1</span></span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>x1 <span class="op">=</span> m.Var(value <span class="op">=</span> a)</span>
-<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>x2 <span class="op">=</span> m.Var(value <span class="op">=</span> b)</span>
-<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>x3 <span class="op">=</span> m.Var(value <span class="op">=</span> (a<span class="op">-</span>y0)<span class="op">**</span><span class="dv">2</span> <span class="op">+</span> (b<span class="op">-</span>y0)<span class="op">**</span><span class="dv">2</span>)</span>
-<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>u <span class="op">=</span> m.Var(value <span class="op">=</span> <span class="dv">0</span>, lb <span class="op">=</span> <span class="op">-</span><span class="dv">1</span>, ub <span class="op">=</span> <span class="dv">1</span>)</span>
-<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>p <span class="op">=</span> np.zeros(n)</span>
-<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>p[<span class="op">-</span><span class="dv">1</span>] <span class="op">=</span> T</span>
-<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>final <span class="op">=</span> m.Param(value <span class="op">=</span> p)</span>
-<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a>m.Equation(x1.dt()<span class="op">==</span>x1<span class="op">-</span>x1<span class="op">*</span>x2<span class="op">-</span><span class="fl">0.4</span><span class="op">*</span>x1<span class="op">*</span>u)</span>
-<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a>m.Equation(x2.dt()<span class="op">==-</span>x2<span class="op">+</span>x1<span class="op">*</span>x2<span class="op">-</span><span class="fl">0.2</span><span class="op">*</span>x1<span class="op">*</span>u)</span>
-<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a>m.Equation(x3.dt()<span class="op">==</span>(x1<span class="op">-</span>y0)<span class="op">**</span><span class="dv">2</span><span class="op">+</span>(x2<span class="op">-</span>y0)<span class="op">**</span><span class="dv">2</span>)</span>
-<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a>m.Obj(x3)</span>
-<span id="cb6-20"><a href="#cb6-20" aria-hidden="true" tabindex="-1"></a>m.options.IMODE <span class="op">=</span> <span class="dv">6</span> <span class="co"># optimal control mode</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>m <span class="op">=</span> GEKKO(remote <span class="op">=</span> <span class="va">False</span>)</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>n <span class="op">=</span> <span class="dv">100</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>T <span class="op">=</span> <span class="dv">12</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>m.time <span class="op">=</span> np.linspace(<span class="dv">0</span>,T,n)</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> <span class="fl">0.2</span><span class="op">;</span> b<span class="op">=</span><span class="fl">0.5</span><span class="op">;</span> y0 <span class="op">=</span> <span class="dv">1</span></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>x1 <span class="op">=</span> m.Var(value <span class="op">=</span> a)</span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>x2 <span class="op">=</span> m.Var(value <span class="op">=</span> b)</span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>x3 <span class="op">=</span> m.Var(value <span class="op">=</span> (a<span class="op">-</span>y0)<span class="op">**</span><span class="dv">2</span> <span class="op">+</span> (b<span class="op">-</span>y0)<span class="op">**</span><span class="dv">2</span>)</span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>u <span class="op">=</span> m.Var(value <span class="op">=</span> <span class="dv">0</span>, lb <span class="op">=</span> <span class="op">-</span><span class="dv">1</span>, ub <span class="op">=</span> <span class="dv">1</span>)</span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>p <span class="op">=</span> np.zeros(n)</span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a>p[<span class="op">-</span><span class="dv">1</span>] <span class="op">=</span> T</span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a>final <span class="op">=</span> m.Param(value <span class="op">=</span> p)</span>
+<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a>m.Equation(x1.dt()<span class="op">==</span>x1<span class="op">-</span>x1<span class="op">*</span>x2<span class="op">-</span><span class="fl">0.4</span><span class="op">*</span>x1<span class="op">*</span>u)</span>
+<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a>m.Equation(x2.dt()<span class="op">==-</span>x2<span class="op">+</span>x1<span class="op">*</span>x2<span class="op">-</span><span class="fl">0.2</span><span class="op">*</span>x1<span class="op">*</span>u)</span>
+<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a>m.Equation(x3.dt()<span class="op">==</span>(x1<span class="op">-</span>y0)<span class="op">**</span><span class="dv">2</span><span class="op">+</span>(x2<span class="op">-</span>y0)<span class="op">**</span><span class="dv">2</span>)</span>
+<span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-19"><a href="#cb7-19" aria-hidden="true" tabindex="-1"></a>m.Obj(x3)</span>
+<span id="cb7-20"><a href="#cb7-20" aria-hidden="true" tabindex="-1"></a>m.options.IMODE <span class="op">=</span> <span class="dv">6</span> <span class="co"># optimal control mode</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 <div class="cell" data-execution_count="19">
 <details>
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> plot_pp(a,b):</span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>    m <span class="op">=</span> GEKKO(remote <span class="op">=</span> <span class="va">True</span>)</span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>    n <span class="op">=</span> <span class="dv">100</span></span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>    T <span class="op">=</span> <span class="dv">12</span></span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>    m.time <span class="op">=</span> np.linspace(<span class="dv">0</span>,T,n)</span>
-<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>    y0 <span class="op">=</span> <span class="dv">1</span></span>
-<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>    x1 <span class="op">=</span> m.Var(value <span class="op">=</span> a)</span>
-<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>    x2 <span class="op">=</span> m.Var(value <span class="op">=</span> b)</span>
-<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>    x3 <span class="op">=</span> m.Var(value <span class="op">=</span> (a<span class="op">-</span>y0)<span class="op">**</span><span class="dv">2</span> <span class="op">+</span> (b<span class="op">-</span>y0)<span class="op">**</span><span class="dv">2</span>)</span>
-<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>    u <span class="op">=</span> m.Var(value <span class="op">=</span> <span class="dv">0</span>, lb <span class="op">=</span> <span class="dv">0</span>, ub <span class="op">=</span> <span class="dv">1</span>)</span>
-<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a>    p <span class="op">=</span> np.zeros(n)</span>
-<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a>    p[<span class="op">-</span><span class="dv">1</span>] <span class="op">=</span> T</span>
-<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a>    m.Equation(x1.dt()<span class="op">==</span>x1<span class="op">-</span>x1<span class="op">*</span>x2<span class="op">-</span><span class="fl">0.4</span><span class="op">*</span>x1<span class="op">*</span>u)</span>
-<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a>    m.Equation(x2.dt()<span class="op">==-</span>x2<span class="op">+</span>x1<span class="op">*</span>x2<span class="op">-</span><span class="fl">0.2</span><span class="op">*</span>x1<span class="op">*</span>u)</span>
-<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a>    m.Equation(x3.dt()<span class="op">==</span>(x1<span class="op">-</span>y0)<span class="op">**</span><span class="dv">2</span><span class="op">+</span>(x2<span class="op">-</span>y0)<span class="op">**</span><span class="dv">2</span>)</span>
-<span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-19"><a href="#cb7-19" aria-hidden="true" tabindex="-1"></a>    m.Obj(x3)</span>
-<span id="cb7-20"><a href="#cb7-20" aria-hidden="true" tabindex="-1"></a>    m.options.IMODE <span class="op">=</span> <span class="dv">6</span> <span class="co"># optimal control mode</span></span>
-<span id="cb7-21"><a href="#cb7-21" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb7-22"><a href="#cb7-22" aria-hidden="true" tabindex="-1"></a>    m.solve(disp<span class="op">=</span><span class="va">False</span>)</span>
-<span id="cb7-23"><a href="#cb7-23" aria-hidden="true" tabindex="-1"></a>    plt.subplot(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">1</span>)</span>
-<span id="cb7-24"><a href="#cb7-24" aria-hidden="true" tabindex="-1"></a>    plt.plot(m.time,x1.value, label <span class="op">=</span> <span class="st">'Prey'</span>)</span>
-<span id="cb7-25"><a href="#cb7-25" aria-hidden="true" tabindex="-1"></a>    plt.plot(m.time,x2.value, label <span class="op">=</span> <span class="st">'Predator'</span>)</span>
-<span id="cb7-26"><a href="#cb7-26" aria-hidden="true" tabindex="-1"></a>    plt.xlabel(<span class="st">"time"</span>)</span>
-<span id="cb7-27"><a href="#cb7-27" aria-hidden="true" tabindex="-1"></a>    plt.ylabel(<span class="st">"population"</span>)</span>
-<span id="cb7-28"><a href="#cb7-28" aria-hidden="true" tabindex="-1"></a>    plt.title(<span class="st">"Solution to the control problem with $y_0$ =</span><span class="sc">%.1f</span><span class="st">"</span> <span class="op">%</span>y0)</span>
-<span id="cb7-29"><a href="#cb7-29" aria-hidden="true" tabindex="-1"></a>    plt.legend()</span>
-<span id="cb7-30"><a href="#cb7-30" aria-hidden="true" tabindex="-1"></a>    plt.subplot(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">2</span>)</span>
-<span id="cb7-31"><a href="#cb7-31" aria-hidden="true" tabindex="-1"></a>    plt.plot(m.time,u.value, color <span class="op">=</span> <span class="st">"r"</span>)</span>
-<span id="cb7-32"><a href="#cb7-32" aria-hidden="true" tabindex="-1"></a>    plt.rcParams[<span class="st">"figure.figsize"</span>]<span class="op">=</span><span class="dv">10</span>,<span class="dv">5</span></span>
-<span id="cb7-33"><a href="#cb7-33" aria-hidden="true" tabindex="-1"></a>    plt.title(<span class="st">"Control function values"</span>)</span>
-<span id="cb7-34"><a href="#cb7-34" aria-hidden="true" tabindex="-1"></a>    plt.xlabel(<span class="st">"time"</span>)</span>
-<span id="cb7-35"><a href="#cb7-35" aria-hidden="true" tabindex="-1"></a>    plt.ylabel(<span class="st">"control value"</span>)</span>
-<span id="cb7-36"><a href="#cb7-36" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-37"><a href="#cb7-37" aria-hidden="true" tabindex="-1"></a>style <span class="op">=</span> {<span class="st">'description_width'</span>: <span class="st">'initial'</span>}</span>
-<span id="cb7-38"><a href="#cb7-38" aria-hidden="true" tabindex="-1"></a>layout <span class="op">=</span> Layout(width <span class="op">=</span> <span class="st">"400px"</span>)</span>
-<span id="cb7-39"><a href="#cb7-39" aria-hidden="true" tabindex="-1"></a>slid1 <span class="op">=</span> widgets.FloatSlider(description <span class="op">=</span> <span class="st">'Initial Prey Population $a$'</span>,<span class="bu">min</span><span class="op">=</span><span class="fl">0.4</span>, <span class="bu">max</span><span class="op">=</span><span class="fl">0.8</span>, step<span class="op">=</span><span class="fl">0.05</span>, value<span class="op">=</span><span class="fl">0.5</span>,style <span class="op">=</span> style, layout <span class="op">=</span> layout)</span>
-<span id="cb7-40"><a href="#cb7-40" aria-hidden="true" tabindex="-1"></a>slid2 <span class="op">=</span> widgets.FloatSlider(description <span class="op">=</span> <span class="st">'Initial Predator Population $b$'</span>,<span class="bu">min</span><span class="op">=</span><span class="fl">0.4</span>, <span class="bu">max</span><span class="op">=</span><span class="fl">0.8</span>, step<span class="op">=</span><span class="fl">0.05</span>, value<span class="op">=</span><span class="fl">0.5</span>, style <span class="op">=</span> style, layout <span class="op">=</span> layout)</span>
-<span id="cb7-41"><a href="#cb7-41" aria-hidden="true" tabindex="-1"></a>interact(plot_pp, a<span class="op">=</span> slid1 ,b<span class="op">=</span>slid2)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> plot_pp(a,b):</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>    m <span class="op">=</span> GEKKO(remote <span class="op">=</span> <span class="va">True</span>)</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>    n <span class="op">=</span> <span class="dv">100</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>    T <span class="op">=</span> <span class="dv">12</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>    m.time <span class="op">=</span> np.linspace(<span class="dv">0</span>,T,n)</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>    y0 <span class="op">=</span> <span class="dv">1</span></span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>    x1 <span class="op">=</span> m.Var(value <span class="op">=</span> a)</span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>    x2 <span class="op">=</span> m.Var(value <span class="op">=</span> b)</span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>    x3 <span class="op">=</span> m.Var(value <span class="op">=</span> (a<span class="op">-</span>y0)<span class="op">**</span><span class="dv">2</span> <span class="op">+</span> (b<span class="op">-</span>y0)<span class="op">**</span><span class="dv">2</span>)</span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>    u <span class="op">=</span> m.Var(value <span class="op">=</span> <span class="dv">0</span>, lb <span class="op">=</span> <span class="dv">0</span>, ub <span class="op">=</span> <span class="dv">1</span>)</span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a>    p <span class="op">=</span> np.zeros(n)</span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a>    p[<span class="op">-</span><span class="dv">1</span>] <span class="op">=</span> T</span>
+<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a>    m.Equation(x1.dt()<span class="op">==</span>x1<span class="op">-</span>x1<span class="op">*</span>x2<span class="op">-</span><span class="fl">0.4</span><span class="op">*</span>x1<span class="op">*</span>u)</span>
+<span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a>    m.Equation(x2.dt()<span class="op">==-</span>x2<span class="op">+</span>x1<span class="op">*</span>x2<span class="op">-</span><span class="fl">0.2</span><span class="op">*</span>x1<span class="op">*</span>u)</span>
+<span id="cb8-17"><a href="#cb8-17" aria-hidden="true" tabindex="-1"></a>    m.Equation(x3.dt()<span class="op">==</span>(x1<span class="op">-</span>y0)<span class="op">**</span><span class="dv">2</span><span class="op">+</span>(x2<span class="op">-</span>y0)<span class="op">**</span><span class="dv">2</span>)</span>
+<span id="cb8-18"><a href="#cb8-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-19"><a href="#cb8-19" aria-hidden="true" tabindex="-1"></a>    m.Obj(x3)</span>
+<span id="cb8-20"><a href="#cb8-20" aria-hidden="true" tabindex="-1"></a>    m.options.IMODE <span class="op">=</span> <span class="dv">6</span> <span class="co"># optimal control mode</span></span>
+<span id="cb8-21"><a href="#cb8-21" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb8-22"><a href="#cb8-22" aria-hidden="true" tabindex="-1"></a>    m.solve(disp<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb8-23"><a href="#cb8-23" aria-hidden="true" tabindex="-1"></a>    plt.subplot(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">1</span>)</span>
+<span id="cb8-24"><a href="#cb8-24" aria-hidden="true" tabindex="-1"></a>    plt.plot(m.time,x1.value, label <span class="op">=</span> <span class="st">'Prey'</span>)</span>
+<span id="cb8-25"><a href="#cb8-25" aria-hidden="true" tabindex="-1"></a>    plt.plot(m.time,x2.value, label <span class="op">=</span> <span class="st">'Predator'</span>)</span>
+<span id="cb8-26"><a href="#cb8-26" aria-hidden="true" tabindex="-1"></a>    plt.xlabel(<span class="st">"time"</span>)</span>
+<span id="cb8-27"><a href="#cb8-27" aria-hidden="true" tabindex="-1"></a>    plt.ylabel(<span class="st">"population"</span>)</span>
+<span id="cb8-28"><a href="#cb8-28" aria-hidden="true" tabindex="-1"></a>    plt.title(<span class="st">"Solution to the control problem with $y_0$ =</span><span class="sc">%.1f</span><span class="st">"</span> <span class="op">%</span>y0)</span>
+<span id="cb8-29"><a href="#cb8-29" aria-hidden="true" tabindex="-1"></a>    plt.legend()</span>
+<span id="cb8-30"><a href="#cb8-30" aria-hidden="true" tabindex="-1"></a>    plt.subplot(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">2</span>)</span>
+<span id="cb8-31"><a href="#cb8-31" aria-hidden="true" tabindex="-1"></a>    plt.plot(m.time,u.value, color <span class="op">=</span> <span class="st">"r"</span>)</span>
+<span id="cb8-32"><a href="#cb8-32" aria-hidden="true" tabindex="-1"></a>    plt.rcParams[<span class="st">"figure.figsize"</span>]<span class="op">=</span><span class="dv">10</span>,<span class="dv">5</span></span>
+<span id="cb8-33"><a href="#cb8-33" aria-hidden="true" tabindex="-1"></a>    plt.title(<span class="st">"Control function values"</span>)</span>
+<span id="cb8-34"><a href="#cb8-34" aria-hidden="true" tabindex="-1"></a>    plt.xlabel(<span class="st">"time"</span>)</span>
+<span id="cb8-35"><a href="#cb8-35" aria-hidden="true" tabindex="-1"></a>    plt.ylabel(<span class="st">"control value"</span>)</span>
+<span id="cb8-36"><a href="#cb8-36" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-37"><a href="#cb8-37" aria-hidden="true" tabindex="-1"></a>style <span class="op">=</span> {<span class="st">'description_width'</span>: <span class="st">'initial'</span>}</span>
+<span id="cb8-38"><a href="#cb8-38" aria-hidden="true" tabindex="-1"></a>layout <span class="op">=</span> Layout(width <span class="op">=</span> <span class="st">"400px"</span>)</span>
+<span id="cb8-39"><a href="#cb8-39" aria-hidden="true" tabindex="-1"></a>slid1 <span class="op">=</span> widgets.FloatSlider(description <span class="op">=</span> <span class="st">'Initial Prey Population $a$'</span>,<span class="bu">min</span><span class="op">=</span><span class="fl">0.4</span>, <span class="bu">max</span><span class="op">=</span><span class="fl">0.8</span>, step<span class="op">=</span><span class="fl">0.05</span>, value<span class="op">=</span><span class="fl">0.5</span>,style <span class="op">=</span> style, layout <span class="op">=</span> layout)</span>
+<span id="cb8-40"><a href="#cb8-40" aria-hidden="true" tabindex="-1"></a>slid2 <span class="op">=</span> widgets.FloatSlider(description <span class="op">=</span> <span class="st">'Initial Predator Population $b$'</span>,<span class="bu">min</span><span class="op">=</span><span class="fl">0.4</span>, <span class="bu">max</span><span class="op">=</span><span class="fl">0.8</span>, step<span class="op">=</span><span class="fl">0.05</span>, value<span class="op">=</span><span class="fl">0.5</span>, style <span class="op">=</span> style, layout <span class="op">=</span> layout)</span>
+<span id="cb8-41"><a href="#cb8-41" aria-hidden="true" tabindex="-1"></a>interact(plot_pp, a<span class="op">=</span> slid1 ,b<span class="op">=</span>slid2)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-display">
 <script type="application/vnd.jupyter.widget-view+json">
