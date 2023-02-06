@@ -3,6 +3,10 @@ project:
 
 website:
   title: "Linus Lach"
+  google-analytics:
+    tracking-id: "G-QDJ453JJ83"
+    anonymize-ip: true
+  cookie-consent: true
   navbar:
     right:
       - text: Blog
@@ -13,5 +17,3 @@ website:
 format:
   html:
     theme: theme.scss
-
-cookie-consent: true

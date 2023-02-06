@@ -4,22 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="db237bed-056c-46b5-9347-48af7a618605" name="Changes" comment="Update_20230131_01">
+    <list default="true" id="db237bed-056c-46b5-9347-48af7a618605" name="Changes" comment="Optimal-Control Predator Prey 20230205">
+      <change afterPath="$PROJECT_DIR$/_site/site_libs/cookie-consent/cookie-consent.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/_site/site_libs/cookie-consent/cookie-consent.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/_quarto.yml" beforeDir="false" afterPath="$PROJECT_DIR$/_quarto.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/_site/blog.html" beforeDir="false" afterPath="$PROJECT_DIR$/_site/blog.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_site/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/_site/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_site/listings.json" beforeDir="false" afterPath="$PROJECT_DIR$/_site/listings.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/_site/posts/post-with-code/Optimal-Control/Predator_Prey_Intro.html" beforeDir="false" afterPath="$PROJECT_DIR$/_site/posts/post-with-code/Optimal-Control/Predator_Prey_Intro.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_site/search.json" beforeDir="false" afterPath="$PROJECT_DIR$/_site/search.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/blog.qmd" beforeDir="false" afterPath="$PROJECT_DIR$/blog.qmd" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.qmd" beforeDir="false" afterPath="$PROJECT_DIR$/index.qmd" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/posts/post-with-code/Optimal-Control/Predator_Prey_Intro.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/posts/post-with-code/Optimal-Control/Predator_Prey_Intro.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/posts/post-with-code/Optimal-Control/image.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/posts/post-with-code/Optimal-Control/res.npy" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/posts/welcome/index.qmd" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/posts/welcome/thumbnail.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/profile.jpg" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -33,12 +24,16 @@
     <option name="stateVersion" value="1" />
   </component>
   <component name="ProjectId" id="2KpsduIE5CAHr3n7Vys0mRvxhdf" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
@@ -81,6 +76,8 @@
       <workItem from="1675165595896" duration="7541000" />
       <workItem from="1675338000207" duration="5617000" />
       <workItem from="1675424775550" duration="634000" />
+      <workItem from="1675614066546" duration="1038000" />
+      <workItem from="1675674641902" duration="387000" />
     </task>
     <task id="LOCAL-00001" summary="Update_20230126_01">
       <created>1674742098540</created>
@@ -152,7 +149,14 @@
       <option name="project" value="LOCAL" />
       <updated>1675165658973</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Optimal-Control Predator Prey 20230205">
+      <created>1675614312381</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1675614312381</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -170,6 +174,7 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="Update_20230126_01" />
     <MESSAGE value="Update_20230126_02" />
     <MESSAGE value="Update_20230126_03" />
@@ -178,6 +183,7 @@
     <MESSAGE value="Update_20230127_02" />
     <MESSAGE value="Update_20230130_01" />
     <MESSAGE value="Update_20230131_01" />
-    <option name="LAST_COMMIT_MESSAGE" value="Update_20230131_01" />
+    <MESSAGE value="Optimal-Control Predator Prey 20230205" />
+    <option name="LAST_COMMIT_MESSAGE" value="Optimal-Control Predator Prey 20230205" />
   </component>
 </project>
