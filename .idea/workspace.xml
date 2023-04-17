@@ -4,13 +4,33 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="db237bed-056c-46b5-9347-48af7a618605" name="Changes" comment="Blog added cookie-consent and google-analystics">
+    <list default="true" id="db237bed-056c-46b5-9347-48af7a618605" name="Changes" comment="Added Multiclass Neural Net&#10;&#10;TODO: Use Softmax and NN for MNIST set">
+      <change afterPath="$PROJECT_DIR$/posts/post-with-code/Pytorch/MNIST/raw/t10k-images-idx3-ubyte" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/posts/post-with-code/Pytorch/MNIST/raw/t10k-images-idx3-ubyte.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/posts/post-with-code/Pytorch/MNIST/raw/t10k-labels-idx1-ubyte" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/posts/post-with-code/Pytorch/MNIST/raw/t10k-labels-idx1-ubyte.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/posts/post-with-code/Pytorch/MNIST/raw/train-images-idx3-ubyte" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/posts/post-with-code/Pytorch/MNIST/raw/train-images-idx3-ubyte.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/posts/post-with-code/Pytorch/MNIST/raw/train-labels-idx1-ubyte" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/posts/post-with-code/Pytorch/MNIST/raw/train-labels-idx1-ubyte.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/posts/post-with-code/Pytorch/draw_input.ipynb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/posts/post-with-code/Pytorch/user_input.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/Blog.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Blog.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/posts/post-with-code/Pytorch/LR_and_Softmax.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/posts/post-with-code/Pytorch/LR_and_Softmax.ipynb" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Jupyter Notebook" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -76,6 +96,10 @@
       <workItem from="1679754979213" duration="19000" />
       <workItem from="1680370866913" duration="683000" />
       <workItem from="1680428220774" duration="32000" />
+      <workItem from="1681379595062" duration="6981000" />
+      <workItem from="1681452735785" duration="16532000" />
+      <workItem from="1681486713660" duration="2073000" />
+      <workItem from="1681722988408" duration="11601000" />
     </task>
     <task id="LOCAL-00001" summary="Update_20230126_01">
       <created>1674742098540</created>
@@ -161,7 +185,21 @@
       <option name="project" value="LOCAL" />
       <updated>1675675197734</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="Updating LR&amp;Softmax">
+      <created>1681380070247</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1681380070247</updated>
+    </task>
+    <task id="LOCAL-00014" summary="Added Multiclass Neural Net&#10;&#10;TODO: Use Softmax and NN for MNIST set">
+      <created>1681388587537</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1681388587537</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -190,6 +228,8 @@
     <MESSAGE value="Update_20230131_01" />
     <MESSAGE value="Optimal-Control Predator Prey 20230205" />
     <MESSAGE value="Blog added cookie-consent and google-analystics" />
-    <option name="LAST_COMMIT_MESSAGE" value="Blog added cookie-consent and google-analystics" />
+    <MESSAGE value="Updating LR&amp;Softmax" />
+    <MESSAGE value="Added Multiclass Neural Net&#10;&#10;TODO: Use Softmax and NN for MNIST set" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added Multiclass Neural Net&#10;&#10;TODO: Use Softmax and NN for MNIST set" />
   </component>
 </project>
