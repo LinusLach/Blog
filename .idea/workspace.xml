@@ -4,17 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="db237bed-056c-46b5-9347-48af7a618605" name="Changes" comment="Blog added cookie-consent and google-analystics">
-      <change afterPath="$PROJECT_DIR$/posts/post-with-code/Pytorch/.ipynb_checkpoints/LR_and_Softmax-checkpoint.ipynb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/posts/post-with-code/Pytorch/9.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/posts/post-with-code/Pytorch/MNIST/processed/test.pt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/posts/post-with-code/Pytorch/MNIST/processed/training.pt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/Blog.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Blog.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="db237bed-056c-46b5-9347-48af7a618605" name="Changes" comment="Added NN with multiple hidden layers and some tests">
       <change beforePath="$PROJECT_DIR$/posts/post-with-code/Pytorch/LR_and_Softmax.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/posts/post-with-code/Pytorch/LR_and_Softmax.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/posts/post-with-code/Pytorch/draw_input.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/posts/post-with-code/Pytorch/draw_input.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/posts/post-with-code/Pytorch/user_input.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/posts/post-with-code/Pytorch/user_input.jpg" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -94,7 +85,7 @@
       <workItem from="1681798427336" duration="15343000" />
       <workItem from="1681826665686" duration="705000" />
       <workItem from="1681827911785" duration="634000" />
-      <workItem from="1681829236559" duration="1474000" />
+      <workItem from="1681829236559" duration="1775000" />
     </task>
     <task id="LOCAL-00001" summary="Update_20230126_01">
       <created>1674742098540</created>
@@ -180,7 +171,14 @@
       <option name="project" value="LOCAL" />
       <updated>1675675197734</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="Added NN with multiple hidden layers and some tests">
+      <created>1681831740256</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1681831740256</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -209,6 +207,7 @@
     <MESSAGE value="Update_20230131_01" />
     <MESSAGE value="Optimal-Control Predator Prey 20230205" />
     <MESSAGE value="Blog added cookie-consent and google-analystics" />
-    <option name="LAST_COMMIT_MESSAGE" value="Blog added cookie-consent and google-analystics" />
+    <MESSAGE value="Added NN with multiple hidden layers and some tests" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added NN with multiple hidden layers and some tests" />
   </component>
 </project>
