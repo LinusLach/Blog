@@ -4,39 +4,31 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="db237bed-056c-46b5-9347-48af7a618605" name="Changes" comment="Added Multiclass Neural Net&#10;&#10;TODO: Use Softmax and NN for MNIST set">
-      <change afterPath="$PROJECT_DIR$/posts/post-with-code/Pytorch/MNIST/raw/t10k-images-idx3-ubyte" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/posts/post-with-code/Pytorch/MNIST/raw/t10k-images-idx3-ubyte.gz" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/posts/post-with-code/Pytorch/MNIST/raw/t10k-labels-idx1-ubyte" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/posts/post-with-code/Pytorch/MNIST/raw/t10k-labels-idx1-ubyte.gz" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/posts/post-with-code/Pytorch/MNIST/raw/train-images-idx3-ubyte" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/posts/post-with-code/Pytorch/MNIST/raw/train-images-idx3-ubyte.gz" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/posts/post-with-code/Pytorch/MNIST/raw/train-labels-idx1-ubyte" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/posts/post-with-code/Pytorch/MNIST/raw/train-labels-idx1-ubyte.gz" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/posts/post-with-code/Pytorch/draw_input.ipynb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/posts/post-with-code/Pytorch/user_input.jpg" afterDir="false" />
+    <list default="true" id="db237bed-056c-46b5-9347-48af7a618605" name="Changes" comment="Blog added cookie-consent and google-analystics">
+      <change afterPath="$PROJECT_DIR$/posts/post-with-code/Pytorch/.ipynb_checkpoints/LR_and_Softmax-checkpoint.ipynb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/posts/post-with-code/Pytorch/9.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/posts/post-with-code/Pytorch/MNIST/processed/test.pt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/posts/post-with-code/Pytorch/MNIST/processed/training.pt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/Blog.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Blog.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/posts/post-with-code/Pytorch/LR_and_Softmax.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/posts/post-with-code/Pytorch/LR_and_Softmax.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/posts/post-with-code/Pytorch/draw_input.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/posts/post-with-code/Pytorch/draw_input.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/posts/post-with-code/Pytorch/user_input.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/posts/post-with-code/Pytorch/user_input.jpg" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="FileTemplateManagerImpl">
-    <option name="RECENT_TEMPLATES">
-      <list>
-        <option value="Jupyter Notebook" />
-      </list>
-    </option>
-  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="ProjectErrors" />
   </component>
   <component name="ProjectId" id="2KpsduIE5CAHr3n7Vys0mRvxhdf" />
   <component name="ProjectLevelVcsManager">
@@ -46,23 +38,26 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Rick/Documents/Project/Pytorch&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;org.jetbrains.plugins.notebooks.jupyter.connections.configuration.JupyterServerConfigurable&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "C:/Users/Rick/Documents/Blog/posts/post-with-code/Pytorch",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Rick\Documents\Blog\posts\post-with-code\Pytorch" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\Rick\Documents\Blog" />
       <recent name="C:\Users\Rick\Documents\Blog\posts\post-with-code\Optimal-Control" />
@@ -96,10 +91,10 @@
       <workItem from="1679754979213" duration="19000" />
       <workItem from="1680370866913" duration="683000" />
       <workItem from="1680428220774" duration="32000" />
-      <workItem from="1681379595062" duration="6981000" />
-      <workItem from="1681452735785" duration="16532000" />
-      <workItem from="1681486713660" duration="2073000" />
-      <workItem from="1681722988408" duration="11601000" />
+      <workItem from="1681798427336" duration="15343000" />
+      <workItem from="1681826665686" duration="705000" />
+      <workItem from="1681827911785" duration="634000" />
+      <workItem from="1681829236559" duration="1474000" />
     </task>
     <task id="LOCAL-00001" summary="Update_20230126_01">
       <created>1674742098540</created>
@@ -185,21 +180,7 @@
       <option name="project" value="LOCAL" />
       <updated>1675675197734</updated>
     </task>
-    <task id="LOCAL-00013" summary="Updating LR&amp;Softmax">
-      <created>1681380070247</created>
-      <option name="number" value="00013" />
-      <option name="presentableId" value="LOCAL-00013" />
-      <option name="project" value="LOCAL" />
-      <updated>1681380070247</updated>
-    </task>
-    <task id="LOCAL-00014" summary="Added Multiclass Neural Net&#10;&#10;TODO: Use Softmax and NN for MNIST set">
-      <created>1681388587537</created>
-      <option name="number" value="00014" />
-      <option name="presentableId" value="LOCAL-00014" />
-      <option name="project" value="LOCAL" />
-      <updated>1681388587537</updated>
-    </task>
-    <option name="localTasksCounter" value="15" />
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -228,8 +209,6 @@
     <MESSAGE value="Update_20230131_01" />
     <MESSAGE value="Optimal-Control Predator Prey 20230205" />
     <MESSAGE value="Blog added cookie-consent and google-analystics" />
-    <MESSAGE value="Updating LR&amp;Softmax" />
-    <MESSAGE value="Added Multiclass Neural Net&#10;&#10;TODO: Use Softmax and NN for MNIST set" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added Multiclass Neural Net&#10;&#10;TODO: Use Softmax and NN for MNIST set" />
+    <option name="LAST_COMMIT_MESSAGE" value="Blog added cookie-consent and google-analystics" />
   </component>
 </project>
