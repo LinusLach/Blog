@@ -4,13 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="db237bed-056c-46b5-9347-48af7a618605" name="Changes" comment="Added Multiclass Neural Net&#10;&#10;TODO: Use Softmax and NN for MNIST set">
-      <change afterPath="$PROJECT_DIR$/posts/post-with-code/Pytorch/Deeper_Networks.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/Blog.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Blog.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="db237bed-056c-46b5-9347-48af7a618605" name="Changes" comment="Added Deeper_NN and dataset experiments">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/posts/post-with-code/Pytorch/LR_and_Softmax.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/posts/post-with-code/Pytorch/LR_and_Softmax.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/posts/post-with-code/Pytorch/draw_input.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/posts/post-with-code/Pytorch/Brain.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/posts/post-with-code/Pytorch/Brain.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/posts/post-with-code/Pytorch/Convolutional NN.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/posts/post-with-code/Pytorch/Convolutional NN.ipynb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/posts/post-with-code/Pytorch/user_input.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/posts/post-with-code/Pytorch/user_input.jpg" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -93,6 +90,8 @@
       <workItem from="1681452735785" duration="16532000" />
       <workItem from="1681486713660" duration="2073000" />
       <workItem from="1681722988408" duration="11601000" />
+      <workItem from="1682403942016" duration="6836000" />
+      <workItem from="1682577193920" duration="22188000" />
     </task>
     <task id="LOCAL-00001" summary="Update_20230126_01">
       <created>1674742098540</created>
@@ -192,7 +191,14 @@
       <option name="project" value="LOCAL" />
       <updated>1681388587537</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="Added Deeper_NN and dataset experiments">
+      <created>1681974792098</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1681974792098</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -223,6 +229,7 @@
     <MESSAGE value="Blog added cookie-consent and google-analystics" />
     <MESSAGE value="Updating LR&amp;Softmax" />
     <MESSAGE value="Added Multiclass Neural Net&#10;&#10;TODO: Use Softmax and NN for MNIST set" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added Multiclass Neural Net&#10;&#10;TODO: Use Softmax and NN for MNIST set" />
+    <MESSAGE value="Added Deeper_NN and dataset experiments" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added Deeper_NN and dataset experiments" />
   </component>
 </project>
