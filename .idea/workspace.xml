@@ -4,11 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="db237bed-056c-46b5-9347-48af7a618605" name="Changes" comment="Added Deeper_NN and dataset experiments">
+    <list default="true" id="db237bed-056c-46b5-9347-48af7a618605" name="Changes" comment="Added convolution examples and maxpooling.">
+      <change beforePath="$PROJECT_DIR$/.idea/Blog.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Blog.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/posts/post-with-code/Pytorch/Brain.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/posts/post-with-code/Pytorch/Brain.jpg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/posts/post-with-code/Pytorch/Convolutional NN.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/posts/post-with-code/Pytorch/Convolutional NN.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/posts/post-with-code/Pytorch/user_input.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/posts/post-with-code/Pytorch/user_input.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/posts/post-with-code/Pytorch/Regression_NN.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/posts/post-with-code/Pytorch/Regression_NN.ipynb" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,6 +24,19 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">
+    <option name="selectedUrlAndAccountId">
+      <UrlAndAccount>
+        <option name="accountId" value="1b4f3374-7713-42ab-b832-60556b6bfa05" />
+        <option name="url" value="https://github.com/LinusLach/Blog.git" />
+      </UrlAndAccount>
+    </option>
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -54,6 +67,7 @@
 }</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\lachlinu\PycharmProjects\Blog\posts\post-with-code\Pytorch" />
       <recent name="C:\Users\Rick\Documents\Blog" />
       <recent name="C:\Users\Rick\Documents\Blog\posts\post-with-code\Optimal-Control" />
     </key>
@@ -91,7 +105,10 @@
       <workItem from="1681486713660" duration="2073000" />
       <workItem from="1681722988408" duration="11601000" />
       <workItem from="1682403942016" duration="6836000" />
-      <workItem from="1682577193920" duration="22188000" />
+      <workItem from="1682577193920" duration="22698000" />
+      <workItem from="1682663196454" duration="7662000" />
+      <workItem from="1682679120887" duration="2872000" />
+      <workItem from="1683094886970" duration="12245000" />
     </task>
     <task id="LOCAL-00001" summary="Update_20230126_01">
       <created>1674742098540</created>
@@ -198,7 +215,21 @@
       <option name="project" value="LOCAL" />
       <updated>1681974792098</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="Added custom Convolution function to CNN Notebook">
+      <created>1682607280623</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1682607280623</updated>
+    </task>
+    <task id="LOCAL-00017" summary="Added convolution examples and maxpooling.">
+      <created>1682687821301</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1682687821301</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -230,6 +261,8 @@
     <MESSAGE value="Updating LR&amp;Softmax" />
     <MESSAGE value="Added Multiclass Neural Net&#10;&#10;TODO: Use Softmax and NN for MNIST set" />
     <MESSAGE value="Added Deeper_NN and dataset experiments" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added Deeper_NN and dataset experiments" />
+    <MESSAGE value="Added custom Convolution function to CNN Notebook" />
+    <MESSAGE value="Added convolution examples and maxpooling." />
+    <option name="LAST_COMMIT_MESSAGE" value="Added convolution examples and maxpooling." />
   </component>
 </project>
