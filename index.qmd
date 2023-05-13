@@ -13,8 +13,9 @@ about:
 
 ---
 ## Hello!
-I'm Linus. Recent math graduate from [UUlm](https://www.uni-ulm.de/en/mawi/mathematics-and-economics/) who has
-an interest in stochastics, statistics, and optimization with an application in economics and comupter science.
+I'm Linus. Math graduate from [UUlm](https://www.uni-ulm.de/en/mawi/mathematics-and-economics/) who is currently
+pursuing a PhD in Statistics at [UNIA](https://www.uni-augsburg.de/de/fakultaet/wiwi/prof/stat/okhrin/team/linus-lach/) and have
+an interest in stochastics, statistics, and optimization with an application in economics and computer science.
 
 I mainly code with R and Python, but also use other tools like SQL, MongoDB, HTML and JS to help me with my projects.
 
