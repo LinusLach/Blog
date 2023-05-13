@@ -11,9 +11,10 @@
 
   <script>
     // Define data
-    const coord = [[-1.000e+00, -4.000e-01,  8.000e-02,  4.640e-01,  7.710e-01,  1.017e+00, 1.214e+00, 1.371e+00, 1.497e+00, 1.597e+00, 1.678e+00, 1.742e+00, 1.794e+00, 1.835e+00, 1.868e+00, 1.894e+00, 1.916e+00,  1.932e+00, 1.946e+00, 1.957e+00],
- [ 9.000e+00, 5.760e+00, 3.686e+00, 2.359e+00, 1.510e+00, 9.660e-01, 6.180e-01, 3.960e-01, 2.530e-01, 1.620e-01, 1.040e-01, 6.600e-02, 4.300e-02, 2.700e-02, 1.700e-02, 1.100e-02, 7.000e-03, 5.000e-03,
-   3.000e-03, 2.000e-03]];
+    const coord =[[-1., -0.413, -0.29, -0.228, -0.193, -0.171, -0.158, -0.15, -0.145, -0.141,
+                -0.139, -0.137, -0.136, -0.136, -0.135, -0.135, -0.135, -0.135, -0.135, -0.135],
+      [ 3.105, 1.167, 1.054, 1.024, 1.014, 1.01, 1.009, 1.008 , 1.008, 1.008,
+   1.008, 1.008, 1.008, 1.008, 1.008, 1.008, 1.008,  1.008,  1.008, 1.008]] ;
     const margin = { top: 50, right: 50, bottom: 50, left: 50 };
     const width = 600 - margin.left - margin.right;
     const height = 400 - margin.top - margin.bottom;
@@ -25,6 +26,7 @@
       .attr("min", 0)
       .attr("max", coord[0].length - 1)
       .attr("step", 1)
+      .attr("value",0)
       .on("input", update);
 
     // Set up the SVG container
@@ -46,14 +48,9 @@
     const line = d3.line()
                     .x(d => xScale(d[0]))
                     .y(d => yScale(d[1]));
-    const line2 = d3.line()
-        .x(d => xScale(d.x))
-        .y(d => yScale(d.y));
 
-    const data = d3.range(-2, 6, 0.1)
-        .map(x => ({ x, y: Math.pow(x - 2, 2) }));
     svg.append("image")
-      .attr("xlink:href", "https://raw.githubusercontent.com/LinusLach/Blog/master/posts/post-with-code/Pytorch/images/output.png")
+      .attr("xlink:href", "https://raw.githubusercontent.com/LinusLach/Blog/master/posts/post-with-code/Pytorch/images/output_xquartic_lr01.png")
       .attr("width", "100%")
       .attr("height", "100%")
       .attr('x',-65)

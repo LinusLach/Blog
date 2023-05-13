@@ -4,73 +4,23 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="db237bed-056c-46b5-9347-48af7a618605" name="Changes" comment="Added convolution examples and maxpooling.">
-      <change afterPath="$PROJECT_DIR$/_site/posts/post-with-code/Pytorch/Post_01.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/_site/posts/post-with-code/Pytorch/Post_01_files/figure-html/cell-10-output-1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/_site/posts/post-with-code/Pytorch/Post_01_files/figure-html/cell-13-output-1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/_site/posts/post-with-code/Pytorch/Post_01_files/figure-html/cell-17-output-1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/_site/posts/post-with-code/Pytorch/Post_01_files/figure-html/cell-21-output-1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/_site/posts/post-with-code/Pytorch/Post_01_files/figure-html/cell-21-output-2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/_site/posts/post-with-code/Pytorch/Post_01_files/figure-html/cell-6-output-1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/_site/posts/post-with-code/Pytorch/Post_01_files/figure-html/cell-8-output-1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/_site/posts/post-with-code/Pytorch/Post_02.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/_site/posts/post-with-code/Pytorch/Post_02_files/figure-html/cell-12-output-1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/_site/posts/post-with-code/Pytorch/Post_02_files/figure-html/cell-3-output-2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/_site/posts/post-with-code/Pytorch/Post_02_files/figure-html/cell-7-output-2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/_site/posts/post-with-code/Pytorch/Post_02_files/figure-html/cell-8-output-2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/_site/posts/post-with-code/Pytorch/gd_1d_xsq.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/_site/posts/post-with-code/Pytorch/image.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/posts/post-with-code/Pytorch/.ipynb_checkpoints/Post_02-checkpoint.ipynb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/posts/post-with-code/Pytorch/Post_01.ipynb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/posts/post-with-code/Pytorch/Post_02.ipynb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/posts/post-with-code/Pytorch/gd_1d_xsq.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/posts/post-with-code/Pytorch/image.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/posts/post-with-code/Pytorch/output.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_27_04_2023_08_27_[Changes]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_27_04_2023_08_27_[Changes]/user_input.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_27_04_2023_08_27__Changes_.xml" beforeDir="false" />
+    <list default="true" id="db237bed-056c-46b5-9347-48af7a618605" name="Changes" comment="Restructuring of Code Posts. Added Post 1 and Post 2 (draft/notes)">
+      <change afterPath="$PROJECT_DIR$/_site/posts/post-with-code/Pytorch/Post_02_files/figure-html/cell-10-output-1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/_site/posts/post-with-code/Pytorch/Post_02_files/figure-html/cell-6-output-2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/posts/post-with-code/Pytorch/gd_1d_xquartic_lr01.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/posts/post-with-code/Pytorch/gd_1d_xsq_test.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/posts/post-with-code/Pytorch/images/output_xqaurtic_lr01.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/posts/post-with-code/Pytorch/nn.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_site/PP.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/_site/blog.html" beforeDir="false" afterPath="$PROJECT_DIR$/_site/blog.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_site/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/_site/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_site/listings.json" beforeDir="false" afterPath="$PROJECT_DIR$/_site/listings.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_site/posts/post-with-code/Optimal-Control/Predator_Prey_Intro.html" beforeDir="false" afterPath="$PROJECT_DIR$/_site/posts/post-with-code/Optimal-Control/Predator_Prey_Intro.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_site/posts/post-with-code/Optimal-Control/iframes/Predator_Prey_Intro.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/_site/posts/post-with-code/Optimal-Control/image.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/_site/posts/post-with-code/Optimal-Control/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/_site/posts/post-with-code/image.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/_site/posts/post-with-code/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/_site/posts/welcome/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/_site/posts/welcome/thumbnail.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/_site/profile.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_site/posts/post-with-code/Pytorch/Post_02.html" beforeDir="false" afterPath="$PROJECT_DIR$/_site/posts/post-with-code/Pytorch/Post_02.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_site/posts/post-with-code/Pytorch/Post_02_files/figure-html/cell-12-output-1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_site/posts/post-with-code/Pytorch/Post_02_files/figure-html/cell-7-output-2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_site/posts/post-with-code/Pytorch/Post_02_files/figure-html/cell-8-output-2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_site/posts/post-with-code/Pytorch/gd_1d_xsq.html" beforeDir="false" afterPath="$PROJECT_DIR$/_site/posts/post-with-code/Pytorch/gd_1d_xsq.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/_site/search.json" beforeDir="false" afterPath="$PROJECT_DIR$/_site/search.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.qmd" beforeDir="false" afterPath="$PROJECT_DIR$/index.qmd" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/posts/_metadata.yml" beforeDir="false" afterPath="$PROJECT_DIR$/posts/_metadata.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/posts/post-with-code/Optimal-Control/Predator_Prey_Intro.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/posts/post-with-code/Optimal-Control/Predator_Prey_Intro.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/posts/post-with-code/Pytorch/.ipynb_checkpoints/LR_and_Softmax-checkpoint.ipynb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/posts/post-with-code/Pytorch/9.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/posts/post-with-code/Pytorch/Benchmark.ipynb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/posts/post-with-code/Pytorch/Brain.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/posts/post-with-code/Pytorch/CNN.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/posts/post-with-code/Pytorch/Convolutional NN.ipynb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/posts/post-with-code/Pytorch/Intro_Classification_NN.ipynb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/posts/post-with-code/Pytorch/MNIST/processed/test.pt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/posts/post-with-code/Pytorch/MNIST/processed/training.pt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/posts/post-with-code/Pytorch/MNIST/raw/t10k-images-idx3-ubyte" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/posts/post-with-code/Pytorch/MNIST/raw/t10k-images-idx3-ubyte.gz" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/posts/post-with-code/Pytorch/MNIST/raw/t10k-labels-idx1-ubyte" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/posts/post-with-code/Pytorch/MNIST/raw/t10k-labels-idx1-ubyte.gz" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/posts/post-with-code/Pytorch/MNIST/raw/train-images-idx3-ubyte" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/posts/post-with-code/Pytorch/MNIST/raw/train-images-idx3-ubyte.gz" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/posts/post-with-code/Pytorch/MNIST/raw/train-labels-idx1-ubyte" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/posts/post-with-code/Pytorch/MNIST/raw/train-labels-idx1-ubyte.gz" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/posts/post-with-code/Pytorch/Regression_NN.ipynb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/posts/post-with-code/Pytorch/model_states/model_NN.pth" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/posts/post-with-code/Pytorch/model_states/model_NN_ReLu.pth" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/posts/post-with-code/Pytorch/model_states/model_NN_ReLu_deep.pth" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/posts/post-with-code/Pytorch/model_states/model_SF.pth" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/posts/post-with-code/Pytorch/user_input.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/posts/post-with-code/Pytorch/Post_02.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/posts/post-with-code/Pytorch/Post_02.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/posts/post-with-code/Pytorch/gd_1d_xsq.html" beforeDir="false" afterPath="$PROJECT_DIR$/posts/post-with-code/Pytorch/gd_1d_xsq.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -113,29 +63,30 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "DefaultHtmlFileTemplate": "HTML File",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "C:/Users/Rick/Documents/Blog/posts/post-with-code/Pytorch",
-    "list.type.of.created.stylesheet": "CSS",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "editor.preferences.fonts.default",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Rick/Documents/Blog/posts/post-with-code/Pytorch&quot;,
+    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;editor.preferences.fonts.default&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\Rick\Documents\Blog\posts\post-with-code\Pytorch" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Rick\Documents\Blog\posts\post-with-code\Pytorch\images" />
       <recent name="C:\Users\Rick\Documents\Blog\posts\post-with-code\Pytorch" />
       <recent name="C:\Users\Rick\Documents\Blog" />
       <recent name="C:\Users\Rick\Documents\Blog\posts\post-with-code\Optimal-Control" />
@@ -178,7 +129,8 @@
       <workItem from="1683452627919" duration="2588000" />
       <workItem from="1683484160366" duration="595000" />
       <workItem from="1683900955918" duration="7344000" />
-      <workItem from="1683975047670" duration="8640000" />
+      <workItem from="1683975047670" duration="10625000" />
+      <workItem from="1683988695816" duration="2371000" />
     </task>
     <task id="LOCAL-00001" summary="Update_20230126_01">
       <created>1674742098540</created>
@@ -299,7 +251,21 @@
       <option name="project" value="LOCAL" />
       <updated>1682687821301</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="Restructuring of Code Posts. Added Post 1 and Post 2 (draft/notes)">
+      <created>1683985495438</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1683985495438</updated>
+    </task>
+    <task id="LOCAL-00019" summary="Restructuring of Code Posts. Added Post 1 and Post 2 (draft/notes)">
+      <created>1683987379089</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1683987379089</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -333,6 +299,7 @@
     <MESSAGE value="Added Deeper_NN and dataset experiments" />
     <MESSAGE value="Added custom Convolution function to CNN Notebook" />
     <MESSAGE value="Added convolution examples and maxpooling." />
-    <option name="LAST_COMMIT_MESSAGE" value="Added convolution examples and maxpooling." />
+    <MESSAGE value="Restructuring of Code Posts. Added Post 1 and Post 2 (draft/notes)" />
+    <option name="LAST_COMMIT_MESSAGE" value="Restructuring of Code Posts. Added Post 1 and Post 2 (draft/notes)" />
   </component>
 </project>

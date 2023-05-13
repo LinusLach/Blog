@@ -285,85 +285,61 @@ cookieconsent.run({
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>epochs <span class="op">=</span> <span class="dv">20</span></span>
 <span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>coord <span class="op">=</span> gd_1d(epochs,lr,f,x0)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell" data-execution_count="6">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(np.<span class="bu">round</span>(coord,<span class="dv">3</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[[-1.000e+00 -4.000e-01  8.000e-02  4.640e-01  7.710e-01  1.017e+00
-   1.214e+00  1.371e+00  1.497e+00  1.597e+00  1.678e+00  1.742e+00
-   1.794e+00  1.835e+00  1.868e+00  1.894e+00  1.916e+00  1.932e+00
-   1.946e+00  1.957e+00]
- [ 9.000e+00  5.760e+00  3.686e+00  2.359e+00  1.510e+00  9.660e-01
-   6.180e-01  3.960e-01  2.530e-01  1.620e-01  1.040e-01  6.600e-02
-   4.300e-02  2.700e-02  1.700e-02  1.100e-02  7.000e-03  5.000e-03
-   3.000e-03  2.000e-03]]</code></pre>
-</div>
-</div>
-<div class="cell" data-execution_count="7">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>plt.plot(X,f(X))</span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>plt.xlim((<span class="op">-</span><span class="dv">2</span>,<span class="dv">6</span>))</span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>plt.ylim((<span class="op">-</span><span class="dv">2</span>,<span class="dv">10</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="7">
-<pre><code>(-2.0, 10.0)</code></pre>
-</div>
-<div class="cell-output cell-output-display">
-<p><img src="Post_02_files/figure-html/cell-7-output-2.png" class="img-fluid"></p>
-</div>
-</div>
 <iframe src="gd_1d_xsq.html" width="700" height="450">
 </iframe>
 <div class="cell" data-execution_count="8">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>Y <span class="op">=</span> np.linspace(<span class="op">-</span><span class="dv">3</span>,<span class="dv">3</span>,N)</span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> f(x, y):</span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>    res <span class="op">=</span> <span class="dv">2</span><span class="op">*</span>(<span class="dv">2</span><span class="op">-</span>x)<span class="op">**</span><span class="dv">2</span><span class="op">*</span>(np.exp(<span class="op">-</span><span class="dv">1</span><span class="op">*</span>(x<span class="op">**</span><span class="dv">2</span>)<span class="op">-</span>(y<span class="op">+</span><span class="dv">1</span>)<span class="op">**</span><span class="dv">2</span>))<span class="op">-</span><span class="dv">15</span><span class="op">*</span>(<span class="dv">1</span><span class="op">/</span><span class="dv">5</span><span class="op">*</span>x<span class="op">-</span>x<span class="op">**</span><span class="dv">3</span><span class="op">-</span>y<span class="op">**</span><span class="dv">3</span>)<span class="op">*</span>np.exp(<span class="op">-</span>x<span class="op">**</span><span class="dv">2</span> <span class="op">-</span> y<span class="op">**</span><span class="dv">2</span>)<span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">3</span><span class="op">*</span>np.exp(<span class="op">-</span>(x <span class="op">+</span> <span class="dv">1</span>)<span class="op">**</span><span class="dv">2</span> <span class="op">-</span> y<span class="op">**</span><span class="dv">2</span>)</span>
-<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> res</span>
-<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>f <span class="op">=</span> np.vectorize(f)</span>
-<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>XX,YY <span class="op">=</span> np.meshgrid(X,Y)</span>
-<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>ZZ <span class="op">=</span> f(XX,YY)</span>
-<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>plt.pcolor(XX, YY, ZZ)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>Y <span class="op">=</span> np.linspace(<span class="op">-</span><span class="dv">3</span>,<span class="dv">3</span>,N)</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> f(x, y):</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>    res <span class="op">=</span> <span class="dv">2</span><span class="op">*</span>(<span class="dv">2</span><span class="op">-</span>x)<span class="op">**</span><span class="dv">2</span><span class="op">*</span>(np.exp(<span class="op">-</span><span class="dv">1</span><span class="op">*</span>(x<span class="op">**</span><span class="dv">2</span>)<span class="op">-</span>(y<span class="op">+</span><span class="dv">1</span>)<span class="op">**</span><span class="dv">2</span>))<span class="op">-</span><span class="dv">15</span><span class="op">*</span>(<span class="dv">1</span><span class="op">/</span><span class="dv">5</span><span class="op">*</span>x<span class="op">-</span>x<span class="op">**</span><span class="dv">3</span><span class="op">-</span>y<span class="op">**</span><span class="dv">3</span>)<span class="op">*</span>np.exp(<span class="op">-</span>x<span class="op">**</span><span class="dv">2</span> <span class="op">-</span> y<span class="op">**</span><span class="dv">2</span>)<span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">3</span><span class="op">*</span>np.exp(<span class="op">-</span>(x <span class="op">+</span> <span class="dv">1</span>)<span class="op">**</span><span class="dv">2</span> <span class="op">-</span> y<span class="op">**</span><span class="dv">2</span>)</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> res</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>f <span class="op">=</span> np.vectorize(f)</span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>XX,YY <span class="op">=</span> np.meshgrid(X,Y)</span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>ZZ <span class="op">=</span> f(XX,YY)</span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>plt.pcolor(XX, YY, ZZ)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="8">
 <pre><code>&lt;matplotlib.collections.PolyCollection at 0x1ab1a437d60&gt;</code></pre>
 </div>
 <div class="cell-output cell-output-display">
-<p><img src="Post_02_files/figure-html/cell-8-output-2.png" class="img-fluid"></p>
+<p><img src="Post_02_files/figure-html/cell-6-output-2.png" class="img-fluid"></p>
 </div>
 </div>
 <div class="cell" data-execution_count="14">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> f_(x,y):</span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="dv">2</span><span class="op">*</span>(<span class="dv">2</span><span class="op">-</span>x)<span class="op">**</span><span class="dv">2</span><span class="op">*</span>(torch.exp(<span class="op">-</span><span class="dv">1</span><span class="op">*</span>(x<span class="op">**</span><span class="dv">2</span>)<span class="op">-</span>(y<span class="op">+</span><span class="dv">1</span>)<span class="op">**</span><span class="dv">2</span>))<span class="op">-</span><span class="dv">15</span><span class="op">*</span>(<span class="dv">1</span><span class="op">/</span><span class="dv">5</span><span class="op">*</span>x<span class="op">-</span>x<span class="op">**</span><span class="dv">3</span><span class="op">-</span>y<span class="op">**</span><span class="dv">3</span>)<span class="op">*</span>torch.exp(<span class="op">-</span>x<span class="op">**</span><span class="dv">2</span> <span class="op">-</span> y<span class="op">**</span><span class="dv">2</span>)<span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">3</span><span class="op">*</span>torch.exp(<span class="op">-</span>(x <span class="op">+</span> <span class="dv">1</span>)<span class="op">**</span><span class="dv">2</span> <span class="op">-</span> y<span class="op">**</span><span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> f_(x,y):</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="dv">2</span><span class="op">*</span>(<span class="dv">2</span><span class="op">-</span>x)<span class="op">**</span><span class="dv">2</span><span class="op">*</span>(torch.exp(<span class="op">-</span><span class="dv">1</span><span class="op">*</span>(x<span class="op">**</span><span class="dv">2</span>)<span class="op">-</span>(y<span class="op">+</span><span class="dv">1</span>)<span class="op">**</span><span class="dv">2</span>))<span class="op">-</span><span class="dv">15</span><span class="op">*</span>(<span class="dv">1</span><span class="op">/</span><span class="dv">5</span><span class="op">*</span>x<span class="op">-</span>x<span class="op">**</span><span class="dv">3</span><span class="op">-</span>y<span class="op">**</span><span class="dv">3</span>)<span class="op">*</span>torch.exp(<span class="op">-</span>x<span class="op">**</span><span class="dv">2</span> <span class="op">-</span> y<span class="op">**</span><span class="dv">2</span>)<span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">3</span><span class="op">*</span>torch.exp(<span class="op">-</span>(x <span class="op">+</span> <span class="dv">1</span>)<span class="op">**</span><span class="dv">2</span> <span class="op">-</span> y<span class="op">**</span><span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell" data-execution_count="15">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> train_model_GD(<span class="bu">iter</span>,lr,f,x1,x2):</span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>    COORD <span class="op">=</span> []</span>
-<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> epoch <span class="kw">in</span> <span class="bu">range</span>(<span class="bu">iter</span>):</span>
-<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>        loss <span class="op">=</span> f(x1,x2)</span>
-<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>        COORD.append([x1.data,x2.data,loss.data])</span>
-<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>        loss.backward()</span>
-<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>        x1.data <span class="op">=</span> x1.data <span class="op">-</span> lr <span class="op">*</span> x1.grad.data</span>
-<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>        x2.data <span class="op">=</span> x2.data <span class="op">-</span> lr <span class="op">*</span> x2.grad.data</span>
-<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a>        x1.grad.data.zero_()<span class="op">;</span>x2.grad.data.zero_()</span>
-<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> np.transpose(np.reshape(COORD,(n,<span class="dv">3</span>)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> train_model_GD(<span class="bu">iter</span>,lr,f,x1,x2):</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>    COORD <span class="op">=</span> []</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> epoch <span class="kw">in</span> <span class="bu">range</span>(<span class="bu">iter</span>):</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>        loss <span class="op">=</span> f(x1,x2)</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>        COORD.append([x1.data,x2.data,loss.data])</span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>        loss.backward()</span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>        x1.data <span class="op">=</span> x1.data <span class="op">-</span> lr <span class="op">*</span> x1.grad.data</span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>        x2.data <span class="op">=</span> x2.data <span class="op">-</span> lr <span class="op">*</span> x2.grad.data</span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>        x1.grad.data.zero_()<span class="op">;</span>x2.grad.data.zero_()</span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> np.transpose(np.reshape(COORD,(n,<span class="dv">3</span>)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell" data-execution_count="16">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(f_(x1,x2))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(f_(x1,x2))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>tensor(5.3972, grad_fn=&lt;SubBackward0&gt;)</code></pre>
 </div>
 </div>
 <div class="cell" data-execution_count="17">
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>n <span class="op">=</span> <span class="dv">1000</span></span>
-<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>lr <span class="op">=</span> <span class="fl">0.05</span></span>
-<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>x1 <span class="op">=</span> torch.tensor(<span class="fl">1.2</span>, requires_grad<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>x2 <span class="op">=</span> torch.tensor(<span class="fl">0.0</span>, requires_grad<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>COORD <span class="op">=</span> train_model_GD(n, lr, f_, x1, x2)</span>
-<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a>plt.pcolor(XX, YY, ZZ)</span>
-<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a>plt.plot(COORD[<span class="dv">0</span>], COORD[<span class="dv">1</span>], <span class="st">'o-r'</span>)</span>
-<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a>plt.colorbar(shrink<span class="op">=</span><span class="dv">1</span>, aspect<span class="op">=</span><span class="dv">14</span>)</span>
-<span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>n <span class="op">=</span> <span class="dv">1000</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>lr <span class="op">=</span> <span class="fl">0.05</span></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>x1 <span class="op">=</span> torch.tensor(<span class="fl">1.2</span>, requires_grad<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>x2 <span class="op">=</span> torch.tensor(<span class="fl">0.0</span>, requires_grad<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>COORD <span class="op">=</span> train_model_GD(n, lr, f_, x1, x2)</span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>plt.pcolor(XX, YY, ZZ)</span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>plt.plot(COORD[<span class="dv">0</span>], COORD[<span class="dv">1</span>], <span class="st">'o-r'</span>)</span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a>plt.colorbar(shrink<span class="op">=</span><span class="dv">1</span>, aspect<span class="op">=</span><span class="dv">14</span>)</span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
-<p><img src="Post_02_files/figure-html/cell-12-output-1.png" class="img-fluid"></p>
+<p><img src="Post_02_files/figure-html/cell-10-output-1.png" class="img-fluid"></p>
 </div>
 </div>
 

@@ -25,6 +25,7 @@
       .attr("min", 0)
       .attr("max", coord[0].length - 1)
       .attr("step", 1)
+      .attr("value",0)
       .on("input", update);
 
     // Set up the SVG container
@@ -46,9 +47,6 @@
     const line = d3.line()
                     .x(d => xScale(d[0]))
                     .y(d => yScale(d[1]));
-    const line2 = d3.line()
-        .x(d => xScale(d.x))
-        .y(d => yScale(d.y));
 
     const data = d3.range(-2, 6, 0.1)
         .map(x => ({ x, y: Math.pow(x - 2, 2) }));

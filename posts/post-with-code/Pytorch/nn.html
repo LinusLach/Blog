@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Function-Plot Example</title>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <script src="https://unpkg.com/function-plot/dist/function-plot.js"></script>
+  </head>
+  <body>
+    <div id="plot"></div>
+    <div>
+      <label for="w11-slider">w11:</label>
+      <input type="range" id="w11-slider" min="-10" max="10" step="0.1" value="0"/>
+    </div>
+    <div>
+      <label for="w12-slider">w12:</label>
+      <input type="range" id="w12-slider" min="-10" max="10" step="0.1" value="0"/>
+    </div>
+    <div>
+      <label for="w21-slider">w21:</label>
+      <input type="range" id="w21-slider" min="-10" max="10" step="0.1" value="0"/>
+    </div>
+    <div>
+      <label for="w22-slider">w22:</label>
+      <input type="range" id="w22-slider" min="-10" max="10" step="0.1" value="0"/>
+    </div>
+    <script>
+      functionPlot({
+        target: '#plot',
+        grid: true,
+        xAxis: {domain: [-3, 3]},
+        yAxis: {domain: [-0.5, 1.5]},
+        disableZoom: true,
+        data: [
+          {
+            fn: '1/(1+exp(-(w21/(1+exp(-w11*x))+w22/(1+exp(-w12*x)))))',
+            scope: {
+              w11: 5,
+              w12:1,
+              w21:1,
+              w22:-1
+              }
+          }
+        ]
+      });
+
+      const w11Slider = document.querySelector('#w11-slider');
+      const w12Slider = document.querySelector('#w12-slider');
+      const w21Slider = document.querySelector('#w21-slider');
+      const w22Slider = document.querySelector('#w22-slider');
+
+      w11Slider.addEventListener('input', () => {
+        const w11 = Number(w11Slider.value);
+        const w12 = Number(w12Slider.value);
+        const w21 = Number(w21Slider.value);
+        const w22 = Number(w22Slider.value);
+        functionPlot({
+          target: '#plot',
+          grid: true,
+          xAxis: {domain: [-3, 3]},
+          yAxis: {domain: [-0.5, 1.5]},
+          disableZoom: true,
+          data: [
+            {
+              fn: '1/(1+exp(-(w21/(1+exp(-w11*x))+w22/(1+exp(-w12*x)))))',
+              scope: {w11, w12, w21, w22}
+            }
+          ]
+        });
+      });
+      w12Slider.addEventListener('input', () => {
+        const w11 = Number(w11Slider.value);
+        const w12 = Number(w12Slider.value);
+        const w21 = Number(w21Slider.value);
+        const w22 = Number(w22Slider.value);
+        functionPlot({
+          target: '#plot',
+          grid: true,
+          xAxis: {domain: [-3, 3]},
+          yAxis: {domain: [-0.5, 1.5]},
+          disableZoom: true,
+          data: [
+            {
+              fn: '1/(1+exp(-(w21/(1+exp(-w11*x))+w22/(1+exp(-w12*x)))))',
+              scope: {w11, w12, w21, w22}
+            }
+          ]
+        });
+      });
+      w21Slider.addEventListener('input', () => {
+        const w11 = Number(w11Slider.value);
+        const w12 = Number(w12Slider.value);
+        const w21 = Number(w21Slider.value);
+        const w22 = Number(w22Slider.value);
+        functionPlot({
+          target: '#plot',
+          grid: true,
+          xAxis: {domain: [-3, 3]},
+          yAxis: {domain: [-0.5, 1.5]},
+          disableZoom: true,
+          data: [
+            {
+              fn: '1/(1+exp(-(w21/(1+exp(-w11*x))+w22/(1+exp(-w12*x)))))',
+              scope: {w11, w12, w21, w22}
+            }
+          ]
+        });
+      });
+      w22Slider.addEventListener('input', () => {
+        const w11 = Number(w11Slider.value);
+        const w12 = Number(w12Slider.value);
+        const w21 = Number(w21Slider.value);
+        const w22 = Number(w22Slider.value);
+        functionPlot({
+          target: '#plot',
+          grid: true,
+          xAxis: {domain: [-3, 3]},
+          yAxis: {domain: [-0.5, 1.5]},
+          disableZoom: true,
+          data: [
+            {
+              fn: '1/(1+exp(-(w21/(1+exp(-w11*x))+w22/(1+exp(-w12*x)))))',
+              scope: {w11, w12, w21, w22}
+            }
+          ]
+        });
+      });
+    </script>
+  </body>
+</html>
