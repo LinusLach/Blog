@@ -10,19 +10,19 @@
     <div id="plot"></div>
     <div>
       <label for="w11-slider">w11:</label>
-      <input type="range" id="w11-slider" min="-10" max="10" step="0.1" value="0"/>
+      <input type="range" id="w11-slider" min="-15" max="15" step="0.1" value="-8.95"/>
     </div>
     <div>
       <label for="w12-slider">w12:</label>
-      <input type="range" id="w12-slider" min="-10" max="10" step="0.1" value="0"/>
+      <input type="range" id="w12-slider" min="-15" max="15" step="0.1" value="-8.28"/>
     </div>
     <div>
       <label for="w21-slider">w21:</label>
-      <input type="range" id="w21-slider" min="-10" max="10" step="0.1" value="0"/>
+      <input type="range" id="w21-slider" min="-15" max="15" step="0.1" value="12.52"/>
     </div>
     <div>
       <label for="w22-slider">w22:</label>
-      <input type="range" id="w22-slider" min="-10" max="10" step="0.1" value="0"/>
+      <input type="range" id="w22-slider" min="-15" max="15" step="0.1" value="-13.31"/>
     </div>
     <script>
       functionPlot({
@@ -33,12 +33,15 @@
         disableZoom: true,
         data: [
           {
-            fn: '1/(1+exp(-(w21/(1+exp(-w11*x))+w22/(1+exp(-w12*x)))))',
+            fn: '1/(1+exp(-(b22 + w21/(1+exp(-(b11 + w11*x)))+w22/(1+exp(-(b12 + w12*x))))))',
             scope: {
-              w11: 5,
-              w12:1,
-              w21:1,
-              w22:-1
+              w11: -8.95,
+              w12: -8.28,
+              w21: 12.52,
+              w22: -13.31,
+              b22: -5.66,
+              b11: 8.21,
+              b12: -7.81
               }
           }
         ]
@@ -62,8 +65,10 @@
           disableZoom: true,
           data: [
             {
-              fn: '1/(1+exp(-(w21/(1+exp(-w11*x))+w22/(1+exp(-w12*x)))))',
-              scope: {w11, w12, w21, w22}
+              fn: '1/(1+exp(-(b22 + w21/(1+exp(-(b11 + w11*x)))+w22/(1+exp(-(b12 + w12*x))))))',
+              scope: {w11, w12, w21, w22, b22: -5.66,
+              b11: 8.21,
+              b12: -7.81}
             }
           ]
         });
@@ -81,8 +86,10 @@
           disableZoom: true,
           data: [
             {
-              fn: '1/(1+exp(-(w21/(1+exp(-w11*x))+w22/(1+exp(-w12*x)))))',
-              scope: {w11, w12, w21, w22}
+              fn: '1/(1+exp(-(b22 + w21/(1+exp(-(b11 + w11*x)))+w22/(1+exp(-(b12 + w12*x))))))',
+              scope: {w11, w12, w21, w22, b22: -5.66,
+              b11: 8.21,
+              b12: -7.81}
             }
           ]
         });
@@ -100,8 +107,10 @@
           disableZoom: true,
           data: [
             {
-              fn: '1/(1+exp(-(w21/(1+exp(-w11*x))+w22/(1+exp(-w12*x)))))',
-              scope: {w11, w12, w21, w22}
+              fn: '1/(1+exp(-(b22 + w21/(1+exp(-(b11 + w11*x)))+w22/(1+exp(-(b12 + w12*x))))))',
+              scope: {w11, w12, w21, w22, b22: -5.66,
+              b11: 8.21,
+              b12: -7.81}
             }
           ]
         });
@@ -119,8 +128,10 @@
           disableZoom: true,
           data: [
             {
-              fn: '1/(1+exp(-(w21/(1+exp(-w11*x))+w22/(1+exp(-w12*x)))))',
-              scope: {w11, w12, w21, w22}
+              fn: '1/(1+exp(-(b22 + w21/(1+exp(-(b11 + w11*x)))+w22/(1+exp(-(b12 + w12*x))))))',
+              scope: {w11, w12, w21, w22, b22: -5.66,
+              b11: 8.21,
+              b12: -7.81}
             }
           ]
         });

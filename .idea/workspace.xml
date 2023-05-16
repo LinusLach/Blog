@@ -5,23 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="db237bed-056c-46b5-9347-48af7a618605" name="Changes" comment="Restructuring of Code Posts. Added Post 1 and Post 2 (draft/notes)">
-      <change afterPath="$PROJECT_DIR$/_site/posts/post-with-code/Pytorch/Post_02_files/figure-html/cell-13-output-1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/_site/posts/post-with-code/Pytorch/Post_02_files/figure-html/cell-7-output-1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/_site/posts/post-with-code/Pytorch/Post_02_files/figure-html/cell-8-output-1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/_site/posts/post-with-code/Pytorch/Post_02_files/figure-html/cell-9-output-2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/_site/posts/post-with-code/Pytorch/gd_1d_xquartic_lr01.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/_site/posts/post-with-code/Pytorch/gd_1d_xquartic_lr04.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/posts/post-with-code/Pytorch/gd_1d_xquartic_lr04.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/Blog.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Blog.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_site/blog.html" beforeDir="false" afterPath="$PROJECT_DIR$/_site/blog.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_site/posts/post-with-code/Pytorch/Post_02.html" beforeDir="false" afterPath="$PROJECT_DIR$/_site/posts/post-with-code/Pytorch/Post_02.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_site/posts/post-with-code/Pytorch/Post_02_files/figure-html/cell-10-output-1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/_site/posts/post-with-code/Pytorch/Post_02_files/figure-html/cell-3-output-2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/_site/posts/post-with-code/Pytorch/Post_02_files/figure-html/cell-6-output-2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/_site/posts/post-with-code/Pytorch/gd_1d_xsq.html" beforeDir="false" afterPath="$PROJECT_DIR$/_site/posts/post-with-code/Pytorch/gd_1d_xsq.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_site/search.json" beforeDir="false" afterPath="$PROJECT_DIR$/_site/search.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/posts/post-with-code/Pytorch/Post_01.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/posts/post-with-code/Pytorch/Post_01.ipynb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/posts/post-with-code/Pytorch/Post_02.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/posts/post-with-code/Pytorch/Post_02.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/posts/post-with-code/Pytorch/gd_1d_xquartic_lr01.html" beforeDir="false" afterPath="$PROJECT_DIR$/posts/post-with-code/Pytorch/gd_1d_xquartic_lr01.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/posts/post-with-code/Pytorch/nn.html" beforeDir="false" afterPath="$PROJECT_DIR$/posts/post-with-code/Pytorch/nn.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -132,6 +120,7 @@
       <workItem from="1683900955918" duration="7344000" />
       <workItem from="1683975047670" duration="10625000" />
       <workItem from="1683988695816" duration="4418000" />
+      <workItem from="1684239909756" duration="9865000" />
     </task>
     <task id="LOCAL-00001" summary="Update_20230126_01">
       <created>1674742098540</created>
