@@ -4,11 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="db237bed-056c-46b5-9347-48af7a618605" name="Changes" comment="Restructuring of Code Posts. Added Post 1 and Post 2 (draft/notes)">
-      <change beforePath="$PROJECT_DIR$/.idea/Blog.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Blog.iml" afterDir="false" />
+    <list default="true" id="db237bed-056c-46b5-9347-48af7a618605" name="Changes" comment="Added grid search for 2d gradient descent">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/posts/post-with-code/Pytorch/Post_01.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/posts/post-with-code/Pytorch/Post_01.ipynb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/posts/post-with-code/Pytorch/Post_02.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/posts/post-with-code/Pytorch/Post_02.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/posts/post-with-code/Pytorch/gd_1d_xquartic_lr01.html" beforeDir="false" afterPath="$PROJECT_DIR$/posts/post-with-code/Pytorch/gd_1d_xquartic_lr01.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/posts/post-with-code/Pytorch/gd_1d_xquartic_lr04.html" beforeDir="false" afterPath="$PROJECT_DIR$/posts/post-with-code/Pytorch/gd_1d_xquartic_lr04.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/posts/post-with-code/Pytorch/gd_1d_xsq.html" beforeDir="false" afterPath="$PROJECT_DIR$/posts/post-with-code/Pytorch/gd_1d_xsq.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/posts/post-with-code/Pytorch/gd_1d_xsq_test.html" beforeDir="false" afterPath="$PROJECT_DIR$/posts/post-with-code/Pytorch/gd_1d_xsq_test.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/posts/post-with-code/Pytorch/gd_2d_ivgrid.html" beforeDir="false" afterPath="$PROJECT_DIR$/posts/post-with-code/Pytorch/gd_2d_ivgrid.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/posts/post-with-code/Pytorch/nn.html" beforeDir="false" afterPath="$PROJECT_DIR$/posts/post-with-code/Pytorch/nn.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -59,14 +63,14 @@
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Rick/Documents/Blog/posts/post-with-code/Pytorch&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Rick/Documents/Blog&quot;,
     &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;editor.preferences.fonts.default&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settingsdialog.IDE.editor.colors.Debugger&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
@@ -75,8 +79,8 @@
       <recent name="C:\Users\Rick\Documents\Blog\posts\post-with-code\Pytorch" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\Rick\Documents\Blog\posts\post-with-code\Pytorch\images" />
       <recent name="C:\Users\Rick\Documents\Blog\posts\post-with-code\Pytorch" />
+      <recent name="C:\Users\Rick\Documents\Blog\posts\post-with-code\Pytorch\images" />
       <recent name="C:\Users\Rick\Documents\Blog" />
       <recent name="C:\Users\Rick\Documents\Blog\posts\post-with-code\Optimal-Control" />
     </key>
@@ -121,6 +125,15 @@
       <workItem from="1683975047670" duration="10625000" />
       <workItem from="1683988695816" duration="4418000" />
       <workItem from="1684239909756" duration="9865000" />
+      <workItem from="1684305258310" duration="3221000" />
+      <workItem from="1684915740771" duration="23000" />
+      <workItem from="1684928754525" duration="13822000" />
+      <workItem from="1685796198605" duration="1720000" />
+      <workItem from="1685797979510" duration="79000" />
+      <workItem from="1685798069057" duration="801000" />
+      <workItem from="1685798975689" duration="308000" />
+      <workItem from="1685800931699" duration="3209000" />
+      <workItem from="1685889658048" duration="3431000" />
     </task>
     <task id="LOCAL-00001" summary="Update_20230126_01">
       <created>1674742098540</created>
@@ -269,7 +282,14 @@
       <option name="project" value="LOCAL" />
       <updated>1683991488767</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="Added grid search for 2d gradient descent">
+      <created>1684942538225</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1684942538225</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -304,6 +324,7 @@
     <MESSAGE value="Added custom Convolution function to CNN Notebook" />
     <MESSAGE value="Added convolution examples and maxpooling." />
     <MESSAGE value="Restructuring of Code Posts. Added Post 1 and Post 2 (draft/notes)" />
-    <option name="LAST_COMMIT_MESSAGE" value="Restructuring of Code Posts. Added Post 1 and Post 2 (draft/notes)" />
+    <MESSAGE value="Added grid search for 2d gradient descent" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added grid search for 2d gradient descent" />
   </component>
 </project>
