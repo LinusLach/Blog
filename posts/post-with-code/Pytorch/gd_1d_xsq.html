@@ -1,101 +1,153 @@
 <!DOCTYPE html>
-<html>
+<meta charset="utf-8">
+
 <head>
-  <meta charset="utf-8">
-  <title>D3.js Scatter Plot with Slider</title>
+  <!-- Load d3.js -->
   <script src="https://d3js.org/d3.v7.min.js"></script>
 </head>
+
 <body>
   <div id="slider"></div>
-  <svg id="scatterplot"></svg>
+  <div class="container">
+    <svg id="root"></svg>
+  </div>
 
   <script>
-    // Define data
-    const coord = [[-1.000e+00, -4.000e-01,  8.000e-02,  4.640e-01,  7.710e-01,  1.017e+00, 1.214e+00, 1.371e+00, 1.497e+00, 1.597e+00, 1.678e+00, 1.742e+00, 1.794e+00, 1.835e+00, 1.868e+00, 1.894e+00, 1.916e+00,  1.932e+00, 1.946e+00, 1.957e+00],
- [ 9.000e+00, 5.760e+00, 3.686e+00, 2.359e+00, 1.510e+00, 9.660e-01, 6.180e-01, 3.960e-01, 2.530e-01, 1.620e-01, 1.040e-01, 6.600e-02, 4.300e-02, 2.700e-02, 1.700e-02, 1.100e-02, 7.000e-03, 5.000e-03,
-   3.000e-03, 2.000e-03]];
-    const margin = { top: 50, right: 50, bottom: 50, left: 50 };
-    const width = 600 - margin.left - margin.right;
-    const height = 400 - margin.top - margin.bottom;
+    const margin = { top: 10, right: 50, bottom: 50, left: 50 },
+      width = 450 - margin.left - margin.right,
+      height = 400 - margin.top - margin.bottom;
 
-    // Set up the slider
-    const slider = d3.select("#slider")
+    const svg = d3.select("#root").attr("width", width + margin.left + margin.right)
+      .attr("height", height + margin.top + margin.bottom)
+      .append("g")
+      .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+
+    // Define chart area
+    svg
+      .append("clipPath")
+      .attr("id", "chart-area")
+      .append("rect")
+      .attr("x", 0)
+      .attr("y", 0)
+      .attr("width", width)
+      .attr("height", height)
+
+    // Add Axes
+    const xMax = 6;
+    const yMax = 10;
+    const N = 20;
+    const lr = 0.1;
+
+    let xScale = d3.scaleLinear([-2, xMax], [0, width])
+    let yScale = d3.scaleLinear([-0.1, yMax], [height, 0])
+
+    let xAxis = d3.axisBottom(xScale)
+    let yAxis = d3.axisLeft(yScale)
+    svg.append("g")
+      .attr("transform", `translate(0,${height})`)
+      .call(xAxis)
+    svg.append("g")
+      .attr("transform", `translate(0,0)`)
+      .call(yAxis)
+
+    // Axes label
+    svg.append("text")
+      .attr("class", "x label")
+      .attr("text-anchor", "end")
+      .attr("x", width / 2 + 5)
+      .attr("y", height + 35)
+      .text("x");
+
+    svg.append("text")
+      .attr("class", "y label")
+      .attr("text-anchor", "end")
+      .attr("y", -35)
+      .attr("x", -height / 2)
+      .attr("transform", "rotate(-90)")
+      .html("f(x)")
+
+    const sliderContainer = d3.select("body")
+      .append("div")
+      .style("display", "flex")
+      .style("align-items", "center");
+
+    const slider = sliderContainer
       .append("input")
       .attr("type", "range")
       .attr("min", 0)
-      .attr("max", coord[0].length - 1)
+      .attr("max", N)
+      .attr("value", 0) // Initial value
       .attr("step", 1)
-      .attr("value",0)
-      .on("input", update);
+      .style("width", "200px")
+      .on("input", updateVisualization);
 
-    // Set up the SVG container
-    const svg = d3.select("svg")
-      .attr("width", width + margin.left + margin.right)
-      .attr("height", height + margin.top + margin.bottom)
-      .append("g")
-      .attr("transform", `translate(${margin.left}, ${margin.top})`);
-
-    // Set up scales
-    const xScale = d3.scaleLinear()
-      .domain([-2, 6])
-      .range([0, width]);
-
-    const yScale = d3.scaleLinear()
-      .domain([-2, 10])
-      .range([height, 0]);
-
-    const line = d3.line()
-                    .x(d => xScale(d[0]))
-                    .y(d => yScale(d[1]));
-
-    const data = d3.range(-2, 6, 0.1)
-        .map(x => ({ x, y: Math.pow(x - 2, 2) }));
-    svg.append("image")
-      .attr("xlink:href", "https://raw.githubusercontent.com/LinusLach/Blog/master/posts/post-with-code/Pytorch/images/output.png")
-      .attr("width", "100%")
-      .attr("height", "100%")
-      .attr('x',-65)
-      .attr('y',-60)
-      .attr("preserveAspectRatio", "none");
+    // Add function graph
+    let line = d3.line()
+      .x(d => xScale(d[0]))
+      .y(d => yScale(d[1]))
 
 
-    // Define the update function for the slider
-    function update() {
+    svg.append("path")
+      .datum(graphFunction_f())
+      .attr("clip-path", "url(#chart-area)")
+      .attr("fill", "none")
+      .attr("stroke", "teal")
+      .attr("stroke-width", 2)
+      .attr("d", line);
+
+    function graphFunction_f() {
+      const data = [];
+      for (let x = -2; x <= 6; x+= 0.1) {
+        y = (x-2)**2;
+        data.push([x, y])
+      }
+      return data;
+    }
+    const sliderValueDisplay = sliderContainer
+       .append("span")
+       .style("margin-left", "10px");
+
+    const linePath = svg.append("path")
+      .datum(graphFunction_f_prime())
+      .attr("clip-path", "url(#chart-area)")
+      .attr("fill", "none")
+      .attr("stroke", "red")
+      .attr("stroke-width", 2)
+      .attr("d", line);
+
+    const circleGroup = svg.append("g")
+      .attr("class", "circle-group");
+
+    function updateVisualization() {
       const sliderValue = +slider.property("value");
+      const newData = graphFunction_f_prime().slice(0, sliderValue + 1);
+      linePath.datum(newData)
+              .attr("d", line);
+      sliderValueDisplay.text("Step: " + sliderValue);
+      circleGroup.selectAll("circle").remove();
+      circleGroup.selectAll("circle")
+       .data(newData)
+       .enter()
+       .append("circle")
+       .attr("cx", d => xScale(d[0]))
+       .attr("cy", d => yScale(d[1]))
+       .attr("r", 5)
+       .attr("fill", "red");
+    }
 
-      // Filter the data based on the slider value
-      const filteredData = coord[0].slice(0, sliderValue + 1).map((x, i) => [x, coord[1][i]]);
+    function graphFunction_f_prime() {
+     const data = [];
+     let x0 = -1;
+     for (let n = 0; n <= N; n++) {
+       d = 2*(x0-2);
+       y = (x0-2)**2;
+       data.push([x0, y]);
+       x0 = x0 - lr*d;
+     }
+     return data;
+    }
 
-      // Bind the data to circles
-      const circles = svg.selectAll("circle")
-        .data(filteredData);
-
-      const path = svg.selectAll("path")
-        .data([filteredData]);
-
-      // Remove any circles that are no longer needed
-      circles.exit().remove();
-      path.exit().remove();
-      // Add any new circles
-      circles.enter().append("circle")
-        .attr("r", 5)
-        .attr("cx", d => xScale(d[0]))
-        .attr("cy", d => yScale(d[1]))
-        .attr("fill", "red")
-        .merge(circles)
-        .attr("cx", d => xScale(d[0]))
-        .attr("cy", d => yScale(d[1]));
-
-       path.enter().append("path")
-           .attr("fill", "none")
-           .attr("stroke", "red")
-           .attr("stroke-width", 2)
-           .merge(path)
-           .attr("d", line);
-       }
-    // Call the update function initially
-    update();
+    updateVisualization()
   </script>
 </body>
-</html>
-

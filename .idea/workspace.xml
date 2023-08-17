@@ -4,16 +4,34 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="db237bed-056c-46b5-9347-48af7a618605" name="Changes" comment="Added grid search for 2d gradient descent">
+    <list default="true" id="db237bed-056c-46b5-9347-48af7a618605" name="Changes" comment="Added initial adam implementation">
+      <change afterPath="$PROJECT_DIR$/posts/post-with-code/Pytorch/Post_03.ipynb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/posts/post-with-code/Pytorch/Post_01.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/posts/post-with-code/Pytorch/Post_01.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_site/blog.html" beforeDir="false" afterPath="$PROJECT_DIR$/_site/blog.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_site/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/_site/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_site/listings.json" beforeDir="false" afterPath="$PROJECT_DIR$/_site/listings.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_site/posts/post-with-code/Optimal-Control/Predator_Prey_Intro.html" beforeDir="false" afterPath="$PROJECT_DIR$/_site/posts/post-with-code/Optimal-Control/Predator_Prey_Intro.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_site/posts/post-with-code/Pytorch/Post_01.html" beforeDir="false" afterPath="$PROJECT_DIR$/_site/posts/post-with-code/Pytorch/Post_01.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_site/posts/post-with-code/Pytorch/Post_01_files/figure-html/cell-10-output-1.png" beforeDir="false" afterPath="$PROJECT_DIR$/_site/posts/post-with-code/Pytorch/Post_01_files/figure-html/cell-10-output-1.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_site/posts/post-with-code/Pytorch/Post_01_files/figure-html/cell-13-output-1.png" beforeDir="false" afterPath="$PROJECT_DIR$/_site/posts/post-with-code/Pytorch/Post_01_files/figure-html/cell-13-output-1.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_site/posts/post-with-code/Pytorch/Post_01_files/figure-html/cell-17-output-1.png" beforeDir="false" afterPath="$PROJECT_DIR$/_site/posts/post-with-code/Pytorch/Post_01_files/figure-html/cell-17-output-1.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_site/posts/post-with-code/Pytorch/Post_01_files/figure-html/cell-21-output-1.png" beforeDir="false" afterPath="$PROJECT_DIR$/_site/posts/post-with-code/Pytorch/Post_01_files/figure-html/cell-21-output-1.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_site/posts/post-with-code/Pytorch/Post_01_files/figure-html/cell-21-output-2.png" beforeDir="false" afterPath="$PROJECT_DIR$/_site/posts/post-with-code/Pytorch/Post_01_files/figure-html/cell-21-output-2.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_site/posts/post-with-code/Pytorch/Post_01_files/figure-html/cell-6-output-1.png" beforeDir="false" afterPath="$PROJECT_DIR$/_site/posts/post-with-code/Pytorch/Post_01_files/figure-html/cell-6-output-1.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_site/posts/post-with-code/Pytorch/Post_01_files/figure-html/cell-8-output-1.png" beforeDir="false" afterPath="$PROJECT_DIR$/_site/posts/post-with-code/Pytorch/Post_01_files/figure-html/cell-8-output-1.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_site/posts/post-with-code/Pytorch/Post_02.html" beforeDir="false" afterPath="$PROJECT_DIR$/_site/posts/post-with-code/Pytorch/Post_02.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_site/posts/post-with-code/Pytorch/Post_02_files/figure-html/cell-13-output-1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_site/posts/post-with-code/Pytorch/Post_02_files/figure-html/cell-9-output-2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_site/posts/post-with-code/Pytorch/gd_1d_xquartic_lr01.html" beforeDir="false" afterPath="$PROJECT_DIR$/_site/posts/post-with-code/Pytorch/gd_1d_xquartic_lr01.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_site/posts/post-with-code/Pytorch/gd_1d_xquartic_lr04.html" beforeDir="false" afterPath="$PROJECT_DIR$/_site/posts/post-with-code/Pytorch/gd_1d_xquartic_lr04.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_site/posts/post-with-code/Pytorch/gd_1d_xsq.html" beforeDir="false" afterPath="$PROJECT_DIR$/_site/posts/post-with-code/Pytorch/gd_1d_xsq.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_site/search.json" beforeDir="false" afterPath="$PROJECT_DIR$/_site/search.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/posts/post-with-code/Pytorch/Post_02.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/posts/post-with-code/Pytorch/Post_02.ipynb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/posts/post-with-code/Pytorch/gd_1d_xquartic_lr01.html" beforeDir="false" afterPath="$PROJECT_DIR$/posts/post-with-code/Pytorch/gd_1d_xquartic_lr01.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/posts/post-with-code/Pytorch/gd_1d_xquartic_lr04.html" beforeDir="false" afterPath="$PROJECT_DIR$/posts/post-with-code/Pytorch/gd_1d_xquartic_lr04.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/posts/post-with-code/Pytorch/gd_1d_xsq.html" beforeDir="false" afterPath="$PROJECT_DIR$/posts/post-with-code/Pytorch/gd_1d_xsq.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/posts/post-with-code/Pytorch/gd_1d_xsq_test.html" beforeDir="false" afterPath="$PROJECT_DIR$/posts/post-with-code/Pytorch/gd_1d_xsq_test.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/posts/post-with-code/Pytorch/gd_2d_ivgrid.html" beforeDir="false" afterPath="$PROJECT_DIR$/posts/post-with-code/Pytorch/gd_2d_ivgrid.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/posts/post-with-code/Pytorch/nn.html" beforeDir="false" afterPath="$PROJECT_DIR$/posts/post-with-code/Pytorch/nn.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/posts/post-with-code/Pytorch/gd_1d_xsq_test.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/posts/post-with-code/Pytorch/gd_2d_ivgrid.html" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -63,14 +81,14 @@
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Rick/Documents/Blog&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Rick/Documents/Blog/posts/post-with-code/Pytorch&quot;,
     &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settingsdialog.IDE.editor.colors.Debugger&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
@@ -133,7 +151,13 @@
       <workItem from="1685798069057" duration="801000" />
       <workItem from="1685798975689" duration="308000" />
       <workItem from="1685800931699" duration="3209000" />
-      <workItem from="1685889658048" duration="3431000" />
+      <workItem from="1685889658048" duration="4917000" />
+      <workItem from="1687203663262" duration="292000" />
+      <workItem from="1690783224367" duration="588000" />
+      <workItem from="1690796549921" duration="1577000" />
+      <workItem from="1692099697928" duration="11766000" />
+      <workItem from="1692200825445" duration="7300000" />
+      <workItem from="1692252632105" duration="4729000" />
     </task>
     <task id="LOCAL-00001" summary="Update_20230126_01">
       <created>1674742098540</created>
@@ -289,7 +313,14 @@
       <option name="project" value="LOCAL" />
       <updated>1684942538225</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="Added initial adam implementation">
+      <created>1685904345984</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1685904345984</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -325,6 +356,7 @@
     <MESSAGE value="Added convolution examples and maxpooling." />
     <MESSAGE value="Restructuring of Code Posts. Added Post 1 and Post 2 (draft/notes)" />
     <MESSAGE value="Added grid search for 2d gradient descent" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added grid search for 2d gradient descent" />
+    <MESSAGE value="Added initial adam implementation" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added initial adam implementation" />
   </component>
 </project>
