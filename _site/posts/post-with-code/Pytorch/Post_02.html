@@ -239,7 +239,7 @@ cookieconsent.run({
 <p>In this blog post, I’d like to introduce a common method used for training machine learning models such as the <a href="https://linus-lach.de/posts/post-with-code/pytorch/post_01">logistic model</a>. This approach is commonly known as gradient descent—a method that, as its name implies, involves minimizing a function by progressively descending along its gradient. In the context of regression, typically a loss function such as the mean squared error is minimized, which in turn yields an optimal fit for a given model.</p>
 <p>Mathematically speaking in its most basic form this translates into the following:<br>
 Let <span class="math inline">\(\Omega\subseteq \mathbb{R}\)</span> and consider a function <span class="math inline">\(f:\Omega \to \mathbb{R}\)</span> that is at least one time differentiable in <span class="math inline">\(\Omega\)</span>. Set an initial value <span class="math inline">\(x_0\in\Omega\)</span>, a step size <span class="math inline">\(\alpha \geq 0\)</span> and iterate for <span class="math inline">\(n = 0,...,N\)</span> through the following steps:<br>
-&nbsp; &nbsp; 1. Calculate <span class="math inline">\(d = -f'(x_n)\)</span>,<br>
+&nbsp; &nbsp; 1. Calculate <span class="math inline">\(d_n = -f'(x_n)\)</span>,<br>
 &nbsp; &nbsp; 2. Set <span class="math inline">\(x_{n+1} = x_{n} + \alpha d.\)</span> After iterating through all steps, return the last value <span class="math inline">\(x_N\)</span>.</p>
 <p>The procedure above ensures that <span class="math inline">\(f(x_0) \geq f(x_1) \geq ... \geq f(x_N)\)</span> for a sufficiently small step size <span class="math inline">\(\alpha\)</span>, since each <span class="math inline">\(x_n\)</span> moves along the negative gradient towards a local minimum.</p>
 </section>
@@ -256,7 +256,7 @@ Let <span class="math inline">\(\Omega\subseteq \mathbb{R}\)</span> and consider
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="op">%</span>matplotlib inline</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-<div class="cell" data-executetime="{&quot;start_time&quot;:&quot;2023-06-02T15:32:04.059528Z&quot;,&quot;end_time&quot;:&quot;2023-06-02T15:32:04.114226Z&quot;}" data-execution_count="74">
+<div class="cell" data-executetime="{&quot;start_time&quot;:&quot;2023-06-02T15:32:04.059528Z&quot;,&quot;end_time&quot;:&quot;2023-06-02T15:32:04.114226Z&quot;}" data-execution_count="3">
 <details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>N<span class="op">=</span><span class="dv">200</span></span>
@@ -289,12 +289,14 @@ Let <span class="math inline">\(\Omega\subseteq \mathbb{R}\)</span> and consider
 </div>
 <iframe src="gd_1d_xsq.html" width="700" height="450">
 </iframe>
-<p>As the step size increases, the <span class="math inline">\(x_n\)</span> slowly approaches the minimum at <span class="math inline">\(x=0\)</span>. There are however, quite a few pitfalls when applying gradient descent. Consider the function <span class="math display">\[\begin{equation*}
+<p>As the step size increases, the <span class="math inline">\(x_n\)</span> slowly approaches the minimum at <span class="math inline">\(x=0\)</span>.<br>
+There are however, quite a few pitfalls when applying gradient descent. Consider the function <span class="math display">\[\begin{equation*}
 x\mapsto \frac{1}{2}*(\frac{3}{4}*x-1.2)^4-2*(\frac{3}{4}*x-1)^2+2
-\end{equation*}\]</span> displayed in the plot below.</p>
+\end{equation*}\]</span> which has a gloabl minimum at <span class="math inline">\(x \approx 3.607\)</span> and is displayed below.</p>
 <iframe src="gd_1d_xquartic.html" width="700" height="450">
 </iframe>
-<div class="cell" data-executetime="{&quot;start_time&quot;:&quot;2023-06-02T15:32:07.990392Z&quot;,&quot;end_time&quot;:&quot;2023-06-02T15:32:08.051639Z&quot;}" data-execution_count="7">
+<p>As in the example before, set <span class="math inline">\(x_0 = -1,\,\alpha = 0.1, N = 20\)</span> which results in the following interactive plot.</p>
+<div class="cell" data-executetime="{&quot;start_time&quot;:&quot;2023-06-02T15:32:07.990392Z&quot;,&quot;end_time&quot;:&quot;2023-06-02T15:32:08.051639Z&quot;}" data-execution_count="139">
 <details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> f(x):</span>
@@ -304,32 +306,127 @@ x\mapsto \frac{1}{2}*(\frac{3}{4}*x-1.2)^4-2*(\frac{3}{4}*x-1)^2+2
 <span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>lr <span class="op">=</span> <span class="fl">0.1</span></span>
 <span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>epochs <span class="op">=</span> <span class="dv">20</span></span>
 <span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>coord <span class="op">=</span> gd_1d(epochs,lr,f,x0)</span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="co">#Uncomment for a static version</span></span>
-<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a><span class="co">#plt.plot(X,f(X))</span></span>
-<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a><span class="co">#plt.plot(coord[0],coord[1],'-or')</span></span>
-<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a><span class="co">#plt.xlim((-2,6))</span></span>
-<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a><span class="co">#plt.ylim((-2,10))</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="co">#Uncomment for a static version</span></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="co">#plt.plot(X,f(X))</span></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a><span class="co">#plt.plot(coord[0],coord[1],'-or')</span></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a><span class="co">#plt.xlim((-2,6))</span></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a><span class="co">#plt.ylim((-2,10))</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 <iframe src="gd_1d_xquartic_lr01.html" width="700" height="450">
 </iframe>
-<div class="cell" data-executetime="{&quot;start_time&quot;:&quot;2023-06-02T15:32:09.071643Z&quot;,&quot;end_time&quot;:&quot;2023-06-02T15:32:09.164268Z&quot;}" data-execution_count="8">
+<p>It turns out that the learning rate is too small, so instead of approaching the global minimum at <span class="math inline">\(x \approx 3.6\)</span>, the algorithm is stuck in the local minimum at <span class="math inline">\(x\approx -0.1\)</span>. This can easily fixed by increasing the learning rate to <span class="math inline">\(0.4\)</span>.</p>
+<div class="cell" data-executetime="{&quot;start_time&quot;:&quot;2023-06-02T15:32:09.071643Z&quot;,&quot;end_time&quot;:&quot;2023-06-02T15:32:09.164268Z&quot;}" data-execution_count="140">
 <details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>x0 <span class="op">=</span> torch.tensor(<span class="op">-</span><span class="fl">1.0</span>,requires_grad<span class="op">=</span><span class="va">True</span>)</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>lr <span class="op">=</span> <span class="fl">0.40</span></span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>epochs <span class="op">=</span> <span class="dv">20</span></span>
 <span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>coord <span class="op">=</span> gd_1d(epochs,lr,f,x0)</span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>show_plt <span class="op">=</span> <span class="va">False</span></span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> show_plt <span class="kw">is</span> <span class="va">True</span>:</span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>    plt.plot(X,f(X))</span>
-<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>    plt.plot(coord[<span class="dv">0</span>],coord[<span class="dv">1</span>],<span class="st">'-or'</span>)</span>
-<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>    plt.xlim((<span class="op">-</span><span class="dv">2</span>,<span class="dv">6</span>))</span>
-<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>    plt.ylim((<span class="op">-</span><span class="dv">2</span>,<span class="dv">10</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="co">#Uncomment for a static version</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="co">#plt.plot(X,f(X))</span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="co">#plt.plot(coord[0],coord[1],'-or')</span></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="co">#plt.xlim((-2,6))</span></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a><span class="co">#plt.ylim((-2,10))</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 <iframe src="gd_1d_xquartic_lr04.html" width="700" height="450">
+</iframe>
+<p>Using a learing rate of <span class="math inline">\(0.4\)</span> already improves the result. However, for <span class="math inline">\(n\geq 11\)</span> the <span class="math inline">\(x_n\)</span> are no longer approaching the global minimum rather than jumping around it from one side to the other.</p>
+</section>
+<section id="improving-the-learing-rate" class="level2">
+<h2 class="anchored" data-anchor-id="improving-the-learing-rate">Improving the learing rate</h2>
+<p>So how can an optimal learning rate be found? The initial change to a learning rate of <span class="math inline">\(0.4\)</span> seems quite arbitrary! One way is running a grid search, where gradient descent is performed multiple times with varying learning rates. After iterating through every learing rate, select the one which yields the best result. For example, we could start with a learing rate of <span class="math inline">\(\alpha =0.1\)</span> and work our way up to <span class="math inline">\(1.0\)</span> with increments of <span class="math inline">\(0.01\)</span>.</p>
+<div class="cell" data-execution_count="141">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>res <span class="op">=</span> np.array([])</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> lr <span class="kw">in</span> np.arange(<span class="fl">0.1</span>,<span class="dv">1</span>,<span class="fl">0.01</span>):</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>    x0 <span class="op">=</span> torch.tensor(<span class="op">-</span><span class="fl">1.0</span>,requires_grad<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>    epochs <span class="op">=</span> <span class="dv">20</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>    coord <span class="op">=</span> gd_1d(epochs,lr,f,x0)</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>    res <span class="op">=</span> np.append(res,np.<span class="bu">min</span>(coord[<span class="dv">1</span>]))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<p>This approach raises some new challenges, as certain learning rates cause the gradient descent to diverge. Set for example the learning rate to <span class="math inline">\(\alpha = 0.79\)</span> and check out what happens.</p>
+<div class="cell" data-execution_count="142">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>x0 <span class="op">=</span> torch.tensor(<span class="op">-</span><span class="fl">1.0</span>,requires_grad<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>lr <span class="op">=</span> <span class="fl">0.79</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>epochs <span class="op">=</span> <span class="dv">20</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>coord <span class="op">=</span> gd_1d(epochs,lr,f,x0)</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="co">#Uncomment for a static version</span></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="co">#plt.plot(X,f(X))</span></span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a><span class="co">#plt.plot(coord[0],coord[1],'-or')</span></span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a><span class="co">#plt.xlim((-2,6))</span></span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a><span class="co">#plt.ylim((-2,10))</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<iframe src="gd_1d_xquartic_lr079.html" width="700" height="450">
+</iframe>
+<p>By limiting ourselves to the results where <span class="math inline">\(x_N\)</span> is finite we obtain the following result.</p>
+<div class="cell" data-execution_count="153">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>opt_lr <span class="op">=</span> np.arange(<span class="fl">0.1</span>,<span class="dv">1</span>,<span class="fl">0.01</span>)[np.argmin(res[<span class="op">~</span>np.isnan(res)])<span class="op">+</span><span class="dv">1</span>]</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>x0 <span class="op">=</span> torch.tensor(<span class="op">-</span><span class="fl">1.0</span>,requires_grad<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"For a learning rate of </span><span class="sc">{lr:.2f}</span><span class="st">, the final value for x_N is </span><span class="sc">{res:.3f}</span><span class="st">"</span>.<span class="bu">format</span>(lr <span class="op">=</span> opt_lr,res <span class="op">=</span> gd_1d(epochs,opt_lr,f,x0)[<span class="dv">0</span>][<span class="op">-</span><span class="dv">1</span>]))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>For a learning rate of 0.52, the final value for x_N is 3.613</code></pre>
+</div>
+</div>
+<iframe src="gd_1d_xquartic_lr052.html" width="700" height="450">
+</iframe>
+<p>While the final value <span class="math inline">\(x_N\)</span> is already close to the global minimum at <span class="math inline">\(x \approx 3.607\)</span>, this approach is not stable at all. Setting <span class="math inline">\(N = 19\)</span>, yields a final result of <span class="math inline">\(x_N \approx 2.491\)</span>, which misses the global minimum by around <span class="math inline">\(1.116\)</span>. This phenomenon motivates the last part of this post.</p>
+</section>
+<section id="variable-learning-rates" class="level2">
+<h2 class="anchored" data-anchor-id="variable-learning-rates">Variable learning rates</h2>
+<p>In this last paragraph we discuss the so-called <em>Armijo–Rule</em>. It is a step size selection strategy designed to ensure that in each iteration of the gradient descent the learning rate <span class="math inline">\(\alpha\)</span> is sufficiently large to make progress, and additionally to ensure that a significant decrease in the objective function value is achieved at the same time. By following this rule, we can address all the previous issues at once! The basic idea for finding this optimal learning rate <span class="math inline">\(\alpha\)</span> in each of the <span class="math inline">\(n=1,...,N\)</span> steps of the gradient descent is outlined below.<br>
+Set <span class="math inline">\(\beta,\gamma\in(0,1)\)</span> and define an iteration limit <span class="math inline">\(M\)</span> for the following procedure:</p>
+<p>For each <span class="math inline">\(j = 1,...,M\)</span> &nbsp; &nbsp; 1. Check if <span class="math inline">\(f(x_n + \alpha d_n) \leq f(x_n) - \gamma \alpha d_n^2\)</span>.<br>
+&nbsp; &nbsp; 2. If the condition above is not fulfilled, set <span class="math inline">\(\alpha = \alpha\beta\)</span>.<br>
+&nbsp; &nbsp; 3. Repeat until 1. is fulfilled or until <span class="math inline">\(j=M\)</span> and perform th next step of gradient descent with the updated <span class="math inline">\(\alpha\)</span>. By iteratively decreasing the learning rate <span class="math inline">\(\alpha\)</span>, we ensure that the bigger jumps observed before do not occur in a neighbourhood of the global minimum.</p>
+<div class="cell" data-execution_count="287">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> gd_1d_arm(epochs ,lr ,f ,x, gamma, beta, max_iter):</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>    coord <span class="op">=</span> []</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> epoch <span class="kw">in</span> <span class="bu">range</span>(epochs):</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>        loss <span class="op">=</span> f(x)</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>        coord.append([x.data,loss.data])</span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>        loss.backward()</span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(max_iter):</span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>            <span class="cf">if</span> f(x <span class="op">-</span> lr <span class="op">*</span> x.grad.data) <span class="op">&lt;=</span> f(x) <span class="op">-</span> gamma <span class="op">*</span> lr <span class="op">*</span> x.grad.data<span class="op">**</span><span class="dv">2</span>:</span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>                <span class="cf">break</span></span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>            lr <span class="op">*=</span> beta</span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>        x.data <span class="op">=</span> x.data <span class="op">-</span> lr <span class="op">*</span> x.grad.data</span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a>        x.grad.data.zero_()</span>
+<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> np.transpose(np.reshape(coord,(epochs,<span class="dv">2</span>)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<div class="cell" data-execution_count="288">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>x0 <span class="op">=</span> torch.tensor(<span class="op">-</span><span class="fl">1.0</span>,requires_grad<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>lr <span class="op">=</span> <span class="fl">0.6</span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>gamma <span class="op">=</span> <span class="fl">0.9</span></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>beta<span class="op">=</span><span class="fl">0.98</span></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>epochs <span class="op">=</span> <span class="dv">20</span></span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>coord <span class="op">=</span> gd_1d_arm(epochs,lr,f,x0,gamma,beta,max_iter<span class="op">=</span><span class="dv">10</span>)</span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a><span class="co">#Uncomment for a static version</span></span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a><span class="co">#plt.plot(X,f(X))</span></span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a><span class="co">#plt.plot(coord[0],coord[1],'-or')</span></span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a><span class="co">#plt.xlim((-2,6))</span></span>
+<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a><span class="co">#plt.ylim((-2,10))</span></span>
+<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a><span class="co">#plt.show()</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<iframe src="gd_1d_xquartic_armijo.html" width="700" height="450">
 </iframe>
 
 

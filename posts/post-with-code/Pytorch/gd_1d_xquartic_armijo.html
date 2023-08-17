@@ -36,8 +36,12 @@
     // Add Axes
     const xMax = 6;
     const yMax = 10;
+
     const N = 20;
-    const lr = 0.1;
+    let lr = 0.6;
+    const alpha = 1;
+    const beta = 0.98;
+    const max_iter = 10;
 
     let xScale = d3.scaleLinear([-2, xMax], [0, width])
     let yScale = d3.scaleLinear([-2, yMax], [height, 0])
@@ -66,11 +70,17 @@
       .attr("x", -height / 2)
       .attr("transform", "rotate(-90)")
       .html("y")
+
     const sliderContainer = d3.select("body")
       .append("div")
       .style("display", "flex")
       .style("justify-content", "center")
       .style("width", "450px");
+
+   // const sliderContainer = d3.select("body")
+   //   .append("div")
+   //   .style("display", "flex")
+   //   .style("align-items", "center");
 
     const slider = sliderContainer
       .append("input")
@@ -104,6 +114,7 @@
       }
       return data;
     }
+
     const sliderValueDisplay = sliderContainer
        .append("span")
        .style("margin-left", "10px");
@@ -137,12 +148,20 @@
     }
 
     function graphFunction_f_prime() {
+     lr = 0.6
      const data = [];
      let x0 = -1;
      for (let n = 0; n <= N; n++) {
        d = 0.408 + 2.61*x0 - 3.0375*x0**2 + 0.632813*x0**3;
        y = 0.5*(0.75*x0-1.2)**4-2*(0.75*x0-1)**2+2;
        data.push([x0, y]);
+       for(let i = 0; i<= max_iter; i++){
+         x_ = x0-lr*d;
+         if(0.5*(0.75*x_-1.2)**4-2*(0.75*x_-1)**2+2 <= y-alpha*d**2){
+           break;
+         }
+         lr = lr*beta;
+       }
        x0 = x0 - lr*d;
      }
      return data;

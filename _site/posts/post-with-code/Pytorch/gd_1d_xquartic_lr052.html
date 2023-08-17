@@ -37,7 +37,7 @@
     const xMax = 6;
     const yMax = 10;
     const N = 20;
-    const lr = 0.1;
+    const lr = 0.52;
 
     let xScale = d3.scaleLinear([-2, xMax], [0, width])
     let yScale = d3.scaleLinear([-2, yMax], [height, 0])
@@ -66,11 +66,17 @@
       .attr("x", -height / 2)
       .attr("transform", "rotate(-90)")
       .html("y")
+
     const sliderContainer = d3.select("body")
       .append("div")
       .style("display", "flex")
       .style("justify-content", "center")
       .style("width", "450px");
+
+   // const sliderContainer = d3.select("body")
+   //   .append("div")
+   //   .style("display", "flex")
+   //   .style("align-items", "center");
 
     const slider = sliderContainer
       .append("input")
