@@ -4,8 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="db237bed-056c-46b5-9347-48af7a618605" name="Changes" comment="Added initial adam implementation">
+    <list default="true" id="db237bed-056c-46b5-9347-48af7a618605" name="Changes" comment="Fixed js plots">
+      <change afterPath="$PROJECT_DIR$/_site/posts/post-with-code/Pytorch/gd_1d_xquartic.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/posts/post-with-code/Pytorch/gd_1d_xquartic.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_site/blog.html" beforeDir="false" afterPath="$PROJECT_DIR$/_site/blog.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_site/posts/post-with-code/Pytorch/Post_02.html" beforeDir="false" afterPath="$PROJECT_DIR$/_site/posts/post-with-code/Pytorch/Post_02.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_site/search.json" beforeDir="false" afterPath="$PROJECT_DIR$/_site/search.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/posts/post-with-code/Pytorch/Post_02.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/posts/post-with-code/Pytorch/Post_02.ipynb" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -132,7 +137,7 @@
       <workItem from="1690796549921" duration="1577000" />
       <workItem from="1692099697928" duration="11766000" />
       <workItem from="1692200825445" duration="7300000" />
-      <workItem from="1692252632105" duration="5212000" />
+      <workItem from="1692252632105" duration="7315000" />
     </task>
     <task id="LOCAL-00001" summary="Update_20230126_01">
       <created>1674742098540</created>
@@ -302,7 +307,14 @@
       <option name="project" value="LOCAL" />
       <updated>1692257790652</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="Fixed js plots">
+      <created>1692257934277</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1692257934277</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -339,6 +351,7 @@
     <MESSAGE value="Restructuring of Code Posts. Added Post 1 and Post 2 (draft/notes)" />
     <MESSAGE value="Added grid search for 2d gradient descent" />
     <MESSAGE value="Added initial adam implementation" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added initial adam implementation" />
+    <MESSAGE value="Fixed js plots" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed js plots" />
   </component>
 </project>
