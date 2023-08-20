@@ -237,7 +237,7 @@ cookieconsent.run({
 <p>The structure of this post is as follows: First, we familiarize ourselves a bit with the <code>PyTorch</code> framework. To build on this newly gained knowledge, we build a logistic model with <code>PyTorch</code> and gain some understanding about the binary cross-entropy loss in a theoretical setting. In the final part we will learn how to train our logistic regression model to achieve a good fit on given data.</p>
 <section id="pytorch-and-tensors" class="level2">
 <h2 class="anchored" data-anchor-id="pytorch-and-tensors">PyTorch and Tensors</h2>
-<div class="cell" data-executetime="{&quot;start_time&quot;:&quot;2023-05-15T12:53:30.127135Z&quot;,&quot;end_time&quot;:&quot;2023-05-15T12:53:30.144095Z&quot;}" data-execution_count="18">
+<div class="cell" data-executetime="{&quot;start_time&quot;:&quot;2023-05-15T12:53:30.127135Z&quot;,&quot;end_time&quot;:&quot;2023-05-15T12:53:30.144095Z&quot;}" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Some packages needed throughout the article</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> torch</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> torch <span class="im">import</span> nn, optim</span>
@@ -247,7 +247,7 @@ cookieconsent.run({
 <span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="op">%</span>matplotlib inline</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>One of the most basic objects within the <code>PyTorch</code> framework is a tensor, which can be thought of as a scalar, vector, or matrix depending on how it is used. The basic syntax is as follows. The datatype can also be specified which will be important later on for classification tasks.</p>
-<div class="cell" data-executetime="{&quot;start_time&quot;:&quot;2023-05-15T12:53:30.755829Z&quot;,&quot;end_time&quot;:&quot;2023-05-15T12:53:30.781759Z&quot;}" data-execution_count="19">
+<div class="cell" data-executetime="{&quot;start_time&quot;:&quot;2023-05-15T12:53:30.755829Z&quot;,&quot;end_time&quot;:&quot;2023-05-15T12:53:30.781759Z&quot;}" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> torch.tensor([<span class="dv">0</span>])</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> torch.tensor([<span class="fl">0.0</span>,<span class="fl">1.0</span>,<span class="fl">2.0</span>])</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>z <span class="op">=</span> torch.tensor([[<span class="dv">1</span>,<span class="op">-</span><span class="dv">1</span>,<span class="dv">1</span>],[<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>],[<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>]])</span>
@@ -261,7 +261,7 @@ cookieconsent.run({
 </div>
 </div>
 <p>In the code above, <code>x</code> represents a scalar, <code>y</code> a vector, and <code>z</code> a matrix. Note, that in the vector <code>y</code> we did not use the default datatype which is <code>long</code> or more specifically <code>torch.LongTensor</code> rather than <code>float</code> or <code>torch.FloatTensor</code> which is automatically assigned when using floating point notation. The data type can also be specified manually by setting the <code>dtype</code> argument to the desired type and can be checked with the <code>.type()</code> method or <code>dtype</code> attribute.</p>
-<div class="cell" data-executetime="{&quot;start_time&quot;:&quot;2023-05-15T12:53:31.299891Z&quot;,&quot;end_time&quot;:&quot;2023-05-15T12:53:31.322830Z&quot;}" data-execution_count="20">
+<div class="cell" data-executetime="{&quot;start_time&quot;:&quot;2023-05-15T12:53:31.299891Z&quot;,&quot;end_time&quot;:&quot;2023-05-15T12:53:31.322830Z&quot;}" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"x.type() = "</span>,x.<span class="bu">type</span>(),<span class="st">'</span><span class="ch">\n</span><span class="st">'</span>,<span class="st">"x.dtype = "</span>,x.dtype)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>x.type() =  torch.LongTensor 
@@ -269,7 +269,7 @@ cookieconsent.run({
 </div>
 </div>
 <p>Note that <code>torch.LongTensor</code> and <code>torch.int64</code> are synonyms and both refer to the 64-bit signed integer type. Similar to lists in the <code>numpy</code> or base <code>python</code> framework, elements of a tensor can be accessed via their respective indexes.</p>
-<div class="cell" data-executetime="{&quot;start_time&quot;:&quot;2023-05-15T12:53:31.799575Z&quot;,&quot;end_time&quot;:&quot;2023-05-15T12:53:31.856422Z&quot;}" data-execution_count="21">
+<div class="cell" data-executetime="{&quot;start_time&quot;:&quot;2023-05-15T12:53:31.799575Z&quot;,&quot;end_time&quot;:&quot;2023-05-15T12:53:31.856422Z&quot;}" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"The first element of x:"</span>, x[<span class="dv">0</span>])</span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"The second column of the matrix z:"</span>, z[:,<span class="dv">1</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -278,7 +278,7 @@ The second column of the matrix z: tensor([-1,  1,  0])</code></pre>
 </div>
 </div>
 <p>We can also work with tensors in functions which will be of more importance in the later sections. Furthermore, without additional settings, tensors can be plotted by using the familiar <code>pyplot</code> package. See the example below.</p>
-<div class="cell" data-executetime="{&quot;start_time&quot;:&quot;2023-05-15T12:53:32.298285Z&quot;,&quot;end_time&quot;:&quot;2023-05-15T12:53:32.657829Z&quot;}" data-execution_count="22">
+<div class="cell" data-executetime="{&quot;start_time&quot;:&quot;2023-05-15T12:53:32.298285Z&quot;,&quot;end_time&quot;:&quot;2023-05-15T12:53:32.657829Z&quot;}" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> torch.arange(<span class="op">-</span><span class="dv">3</span>,<span class="dv">3</span>,<span class="fl">0.1</span>)</span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> f(t):</span>
@@ -290,7 +290,7 @@ The second column of the matrix z: tensor([-1,  1,  0])</code></pre>
 </div>
 </div>
 <p>Note, that syntax in <code>PyTorch</code> is quite similar to the syntax of the <code>Numpy</code> package (e.g.&nbsp;<code>torch.arange</code> has the same functionality as <code>np.arange</code> and accessing elements in a tensor works analogously to simple Python lists). Thus, it is obvious to ask why we should use the <code>PyTorch</code> framework to begin with. The answer to that question is, that we can conveniently calculate derivatives within the <code>PyTorch</code> framework. To do so, we need to set the <code>requires_grad</code> parameter for a given tensor to <code>True</code>. Check out the following example:</p>
-<div class="cell" data-executetime="{&quot;start_time&quot;:&quot;2023-05-15T12:53:32.807430Z&quot;,&quot;end_time&quot;:&quot;2023-05-15T12:53:32.844330Z&quot;}" data-execution_count="23">
+<div class="cell" data-executetime="{&quot;start_time&quot;:&quot;2023-05-15T12:53:32.807430Z&quot;,&quot;end_time&quot;:&quot;2023-05-15T12:53:32.844330Z&quot;}" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> torch.tensor([<span class="fl">1.</span>], requires_grad<span class="op">=</span> <span class="va">True</span>)</span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"f(x) = f(1) ="</span>, f(x))</span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>f(x).backward()</span>
@@ -303,7 +303,7 @@ tensor([0.2100])</code></pre>
 <p>We first define a tensor <code>x</code> with the <code>requires_grad</code> parameter set to <code>True</code> which allows us to calculate the derivative of any function that takes <code>x</code> as an input. Without getting into too much detail, note that the return value of <code>f(x)</code> is now a tensor with the additional <code>grad_fn</code> attribute, which is a pointer into a graph storing the data created by the operations on the tensor. For more details see <a href="https://pytorch.org/docs/stable/notes/autograd.html">Autograd Mechanics</a>. By plugging <code>x</code> into the previously defined function <code>f</code> and calling the method <code>backward()</code> we calculate the derivative of <code>f</code> in the point <code>x</code>. The result can then be viewed by calling the <code>x.grad</code> attribute. If we call <code>x.grad</code> without previously plugging <code>x</code> into a function the return value will be <code>None</code> as there is no gradient to be calculated.</p>
 <p>Calculating the derivative over a range of values requires a small adjustment to the code. The <code>backward()</code> method stores the values of the gradient of any function in <code>x.grad</code> as we have seen in the example above. Thus, <code>x.grad</code> needs to have the same shape as <code>x</code>. However, if <code>x</code> is not a scalar, i.e., a list of values, <code>f(x).backward()</code> would try to calculate the derivative of each element in <code>f(x)</code> with respect to every element in the list <code>x</code>. This dimension mismatch can be solved by setting the gradient to <code>torch.ones_like(x)</code> which calculates the gradient of each element in <code>f(x)</code> with respect to the corresponding element in <code>x</code>.</p>
 <p>To plot the results with <code>pyplot</code>, we have to detach the gradients (i.e., the pointer into the graph) from the vectors to handle tensors like <code>numpy</code> lists.</p>
-<div class="cell" data-executetime="{&quot;start_time&quot;:&quot;2023-05-15T12:53:33.966885Z&quot;,&quot;end_time&quot;:&quot;2023-05-15T12:53:34.301206Z&quot;}" data-execution_count="24">
+<div class="cell" data-executetime="{&quot;start_time&quot;:&quot;2023-05-15T12:53:33.966885Z&quot;,&quot;end_time&quot;:&quot;2023-05-15T12:53:34.301206Z&quot;}" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> torch.arange(<span class="op">-</span><span class="dv">3</span>, <span class="dv">3</span>, <span class="fl">0.1</span>, requires_grad <span class="op">=</span> <span class="va">True</span>)</span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>f(x).backward(gradient<span class="op">=</span>torch.ones_like(x))</span>
 <span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>plt.plot(x.detach(),f(x).detach(), label <span class="op">=</span> <span class="st">"$f(x)$"</span>)</span>
@@ -321,7 +321,7 @@ tensor([0.2100])</code></pre>
 \end{equation}\]</span> where <span class="math inline">\(\hat y\)</span> is the estimate of <span class="math inline">\(y\)</span> given the parameters <span class="math inline">\(b\)</span> and <span class="math inline">\(w\)</span> and the input <span class="math inline">\(x\)</span>. Then, the value of the logistic model is given by <span class="math display">\[\begin{equation}
 \sigma(\hat y) = \sigma(b+w*x) = \frac{1}{1+\exp(-1*(b+w*x))}.
 \end{equation}\]</span> The output of the sigmoid function <span class="math inline">\(\sigma\)</span> can be interpreted as a probability of a feature <span class="math inline">\(x\)</span> belonging either to class <span class="math inline">\(0\)</span> or <span class="math inline">\(1\)</span>. If for a given feature <span class="math inline">\(x\)</span> the value of <span class="math inline">\(\sigma(\hat y)\)</span> is closer to <span class="math inline">\(1\)</span> we can say that it belongs to class <span class="math inline">\(1\)</span> with probability <span class="math inline">\(\sigma(\hat y)\)</span>, whereas a small value of <span class="math inline">\(\sigma(\hat y)\)</span> can be interpreted as <span class="math inline">\(x\)</span> belonging to class <span class="math inline">\(0\)</span> with probability <span class="math inline">\(1-\sigma(\hat y)\)</span>.</p>
-<div class="cell" data-executetime="{&quot;start_time&quot;:&quot;2023-05-15T12:53:35.200971Z&quot;,&quot;end_time&quot;:&quot;2023-05-15T12:53:35.253161Z&quot;}" data-execution_count="25">
+<div class="cell" data-executetime="{&quot;start_time&quot;:&quot;2023-05-15T12:53:35.200971Z&quot;,&quot;end_time&quot;:&quot;2023-05-15T12:53:35.253161Z&quot;}" data-execution_count="8">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a dataset class that produces our example data</span></span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> Data_2(Dataset):</span>
@@ -366,7 +366,7 @@ tensor([0.2100])</code></pre>
 <span id="cb12-42"><a href="#cb12-42" aria-hidden="true" tabindex="-1"></a>    plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Consider the following dataset consisting of two classes labeled <span class="math inline">\(0\)</span> and <span class="math inline">\(1\)</span>. Then, the goal is to apply the theoretic results from above in order to find the optimal parameters <span class="math inline">\(b\)</span> and <span class="math inline">\(w\)</span>.</p>
-<div class="cell" data-executetime="{&quot;start_time&quot;:&quot;2023-05-15T12:53:36.526772Z&quot;,&quot;end_time&quot;:&quot;2023-05-15T12:53:36.944684Z&quot;}" data-execution_count="26">
+<div class="cell" data-executetime="{&quot;start_time&quot;:&quot;2023-05-15T12:53:36.526772Z&quot;,&quot;end_time&quot;:&quot;2023-05-15T12:53:36.944684Z&quot;}" data-execution_count="9">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>data_2 <span class="op">=</span> Data_2()</span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>plot_data_2(data_2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
@@ -374,16 +374,16 @@ tensor([0.2100])</code></pre>
 </div>
 </div>
 <p>The parameters of the best fitting line can be either be calculated explicitly in the case of a standard linear model, or by minimizing some error term numerically. We will focus on the latter, as our models and the underlying data will be increasingly more complicated. We can build a linear model in <code>PyTorch</code> as we would do in base Python.</p>
-<div class="cell" data-executetime="{&quot;start_time&quot;:&quot;2023-05-15T12:53:37.800109Z&quot;,&quot;end_time&quot;:&quot;2023-05-15T12:53:37.861942Z&quot;}" data-execution_count="27">
+<div class="cell" data-executetime="{&quot;start_time&quot;:&quot;2023-05-15T12:53:37.800109Z&quot;,&quot;end_time&quot;:&quot;2023-05-15T12:53:37.861942Z&quot;}" data-execution_count="10">
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> forward(x,b <span class="op">=</span> <span class="dv">0</span>, w <span class="op">=</span> <span class="dv">2</span>):</span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> b <span class="op">+</span> w <span class="op">*</span> x</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Then, by applying the sigmoid function we obtain the logistic model.</p>
-<div class="cell" data-executetime="{&quot;start_time&quot;:&quot;2023-05-15T12:53:38.511158Z&quot;,&quot;end_time&quot;:&quot;2023-05-15T12:53:38.553075Z&quot;}" data-execution_count="28">
+<div class="cell" data-executetime="{&quot;start_time&quot;:&quot;2023-05-15T12:53:38.511158Z&quot;,&quot;end_time&quot;:&quot;2023-05-15T12:53:38.553075Z&quot;}" data-execution_count="11">
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> forward(x, b<span class="op">=</span> <span class="dv">0</span>, w <span class="op">=</span> <span class="dv">2</span>):</span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="dv">1</span><span class="op">/</span>(<span class="dv">1</span><span class="op">+</span>torch.exp(<span class="op">-</span><span class="dv">1</span><span class="op">*</span>(b <span class="op">+</span> w <span class="op">*</span> x)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell" data-executetime="{&quot;start_time&quot;:&quot;2023-05-15T12:53:39.196465Z&quot;,&quot;end_time&quot;:&quot;2023-05-15T12:53:39.451298Z&quot;}" data-execution_count="29">
+<div class="cell" data-executetime="{&quot;start_time&quot;:&quot;2023-05-15T12:53:39.196465Z&quot;,&quot;end_time&quot;:&quot;2023-05-15T12:53:39.451298Z&quot;}" data-execution_count="12">
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> torch.arange(<span class="op">-</span><span class="dv">2</span>,<span class="dv">2</span>,<span class="fl">0.1</span>)</span>
 <span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>plt.plot(x,forward(x))<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
@@ -391,25 +391,25 @@ tensor([0.2100])</code></pre>
 </div>
 </div>
 <p>Instead of using our custom function, we can also use the <code>nn.Linear</code> submodule. The <code>nn.Linear</code> submodule applies a linear transformation to the incoming data in the same way as the <code>forward</code> function. However, we can specify the input and output dimensions directly and do not have to bother with that any further. Check out the example below.</p>
-<div class="cell" data-executetime="{&quot;start_time&quot;:&quot;2023-05-15T12:53:40.405268Z&quot;,&quot;end_time&quot;:&quot;2023-05-15T12:53:40.464114Z&quot;}" data-execution_count="30">
+<div class="cell" data-executetime="{&quot;start_time&quot;:&quot;2023-05-15T12:53:40.405268Z&quot;,&quot;end_time&quot;:&quot;2023-05-15T12:53:40.464114Z&quot;}" data-execution_count="13">
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>dim_in <span class="op">=</span> <span class="dv">2</span><span class="op">;</span> dim_out <span class="op">=</span> <span class="dv">1</span></span>
 <span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>f <span class="op">=</span> nn.Linear(dim_in,dim_out)</span>
 <span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> torch.tensor([<span class="fl">0.0</span>,<span class="fl">1.0</span>])</span>
 <span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(f(x))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>tensor([0.1519], grad_fn=&lt;AddBackward0&gt;)</code></pre>
+<pre><code>tensor([-0.5982], grad_fn=&lt;AddBackward0&gt;)</code></pre>
 </div>
 </div>
 <p>The weight and bias of the module instance <code>f</code> can be accessed via the <code>state_dict</code> method, which stores the weights and biases of the model:</p>
-<div class="cell" data-executetime="{&quot;start_time&quot;:&quot;2023-05-15T12:53:41.313609Z&quot;,&quot;end_time&quot;:&quot;2023-05-15T12:53:41.359487Z&quot;}" data-execution_count="31">
+<div class="cell" data-executetime="{&quot;start_time&quot;:&quot;2023-05-15T12:53:41.313609Z&quot;,&quot;end_time&quot;:&quot;2023-05-15T12:53:41.359487Z&quot;}" data-execution_count="14">
 <div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"weights: "</span>,f.state_dict()[<span class="st">'weight'</span>],<span class="st">'</span><span class="ch">\n</span><span class="st">'</span>, <span class="st">"bias: "</span>, f.state_dict()[<span class="st">'bias'</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>weights:  tensor([[-0.4401, -0.1017]]) 
- bias:  tensor([0.2536])</code></pre>
+<pre><code>weights:  tensor([[-0.6328, -0.1698]]) 
+ bias:  tensor([-0.4284])</code></pre>
 </div>
 </div>
 <p>Note that the weights are assigned randomly. The reason is that randomized initial weights generally lead to a better performance of the model during the training phase. We can now define our first model:</p>
-<div class="cell" data-executetime="{&quot;start_time&quot;:&quot;2023-05-15T12:53:42.371602Z&quot;,&quot;end_time&quot;:&quot;2023-05-15T12:53:42.401522Z&quot;}" data-execution_count="32">
+<div class="cell" data-executetime="{&quot;start_time&quot;:&quot;2023-05-15T12:53:42.371602Z&quot;,&quot;end_time&quot;:&quot;2023-05-15T12:53:42.401522Z&quot;}" data-execution_count="15">
 <div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> Logistic_regression(nn.Module):</span>
 <span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>,n_inputs):</span>
 <span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>        <span class="bu">super</span>(Logistic_regression, <span class="va">self</span>).<span class="fu">__init__</span>()</span>
@@ -419,7 +419,7 @@ tensor([0.2100])</code></pre>
 <span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> torch.sigmoid(<span class="va">self</span>.linear(x))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Instead of defining a simple logistic model in the form of a function as above, we define the model as a class. Defining the model as a class allows us to work with several instances/objects of the class at the same time without a need for code duplication. The class structure can be explained as follows. The <code>nn.Module</code> class is passed as a superclass, meaning that our class can inherit all the submodules, to all the models we will be building. Those pre-programmed submodules include the <code>nn.Linear</code> model which we will be using a lot. If <code>nn.Module</code> is passed as a superclass , the <code>__init__</code> and <code>forward</code> functions have to be specified manually. Considering the <code>__init__</code> method, it is directly inherited from the <code>nn.Module</code> class and a linear variable is defined. The <code>forward</code> function is the key to our logistic model as it takes a tensor <code>x</code> as an input and returns the sigmoid function applied to the output of the linear model. Let us create an instance of the logistic model defined above and see what it looks like.</p>
-<div class="cell" data-executetime="{&quot;start_time&quot;:&quot;2023-05-15T12:53:43.514683Z&quot;,&quot;end_time&quot;:&quot;2023-05-15T12:53:43.755040Z&quot;}" data-execution_count="33">
+<div class="cell" data-executetime="{&quot;start_time&quot;:&quot;2023-05-15T12:53:43.514683Z&quot;,&quot;end_time&quot;:&quot;2023-05-15T12:53:43.755040Z&quot;}" data-execution_count="16">
 <div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>model <span class="op">=</span> Logistic_regression(<span class="dv">1</span>)</span>
 <span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> torch.arange(<span class="op">-</span><span class="dv">2</span>,<span class="dv">2</span>,<span class="fl">0.1</span>).view(<span class="op">-</span><span class="dv">1</span>,<span class="dv">1</span>)</span>
 <span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>plot_data_2(data_2, model <span class="op">=</span> model, est_line<span class="op">=</span><span class="va">True</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -451,7 +451,7 @@ tensor([0.2100])</code></pre>
      -\frac{1}{N}\log\left(\mathbb{P}(Y|wX+b)\right) &amp;= -\frac{1}{N}\sum_{n=1}^{N}(1-y_i)\log(1-\sigma(wx_i+b))\cdot y_i\log(\sigma(wx_i+b))\\
      &amp;=-\frac{1}{N}\sum_{n=1}^{N}(1-y_i)\log(1-\hat y_i)\cdot y_i\log(\hat y_i) =: \text{CEL}(\hat Y, Y),
 \end{align}\]</span> where <span class="math inline">\(\hat y = \sigma(wx+b)\)</span>. <span class="math inline">\(\text{CEL}(\hat Y, Y)\)</span> is nothing but the binary cross-entropy loss. The binary cross-entropy loss can then be minimized by applying an appropriate algorithm like (stochastic) gradient descent, which will be covered in the next post. Implementing the binary cross-entropy loss in <code>PyTorch</code> works as follows. Note, that by adding the parameter <span class="math inline">\(\varepsilon\)</span> we avoid having to deal with singularities of the logarithm.</p>
-<div class="cell" data-executetime="{&quot;start_time&quot;:&quot;2023-05-15T12:53:45.508465Z&quot;,&quot;end_time&quot;:&quot;2023-05-15T12:53:45.528415Z&quot;}" data-execution_count="34">
+<div class="cell" data-executetime="{&quot;start_time&quot;:&quot;2023-05-15T12:53:45.508465Z&quot;,&quot;end_time&quot;:&quot;2023-05-15T12:53:45.528415Z&quot;}" data-execution_count="17">
 <div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> BinaryCELoss(yhat,y):</span>
 <span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>    eps <span class="op">=</span> <span class="fl">9e-10</span></span>
 <span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="op">-</span><span class="dv">1</span><span class="op">*</span>torch.mean(y<span class="op">*</span>torch.log(yhat<span class="op">+</span>eps)<span class="op">+</span>(<span class="dv">1</span><span class="op">-</span>y)<span class="op">*</span>torch.log(<span class="dv">1</span><span class="op">-</span>yhat<span class="op">+</span>eps))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -465,7 +465,7 @@ tensor([0.2100])</code></pre>
 <li>Set a learning rate for the optimization algorithm (this will also be elaborated on in the next post).</li>
 <li>Set a loss function (like the <code>BinaryCELoss</code> we defined above) and an optimizer (like <code>PyTorchs</code> stochastic gradient descent optimizer).</li>
 </ol>
-<div class="cell" data-executetime="{&quot;start_time&quot;:&quot;2023-05-15T12:54:11.903021Z&quot;,&quot;end_time&quot;:&quot;2023-05-15T12:54:11.910005Z&quot;}" data-execution_count="38">
+<div class="cell" data-executetime="{&quot;start_time&quot;:&quot;2023-05-15T12:54:11.903021Z&quot;,&quot;end_time&quot;:&quot;2023-05-15T12:54:11.910005Z&quot;}" data-execution_count="18">
 <div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>model <span class="op">=</span> Logistic_regression(<span class="dv">1</span>)</span>
 <span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>lr <span class="op">=</span> <span class="fl">0.1</span></span>
 <span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>optimizer <span class="op">=</span> torch.optim.SGD(model.parameters(),lr<span class="op">=</span>lr)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -481,7 +481,7 @@ tensor([0.2100])</code></pre>
 <li>After calculating the loss, we calculate the gradient by using the <code>backward</code>.</li>
 </ol></li>
 </ol>
-<div class="cell" data-executetime="{&quot;start_time&quot;:&quot;2023-05-15T12:54:13.066719Z&quot;,&quot;end_time&quot;:&quot;2023-05-15T12:54:13.091675Z&quot;}" data-execution_count="39">
+<div class="cell" data-executetime="{&quot;start_time&quot;:&quot;2023-05-15T12:54:13.066719Z&quot;,&quot;end_time&quot;:&quot;2023-05-15T12:54:13.091675Z&quot;}" data-execution_count="19">
 <div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> train_model(epochs):</span>
 <span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>    LOSS <span class="op">=</span> []</span>
 <span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> <span class="bu">iter</span> <span class="kw">in</span> <span class="bu">range</span>(epochs):</span>
@@ -494,7 +494,7 @@ tensor([0.2100])</code></pre>
 <span id="cb25-10"><a href="#cb25-10" aria-hidden="true" tabindex="-1"></a>    plt.plot(np.arange(<span class="dv">0</span>,epochs,<span class="dv">1</span>),LOSS)</span>
 <span id="cb25-11"><a href="#cb25-11" aria-hidden="true" tabindex="-1"></a>    plt.title(<span class="st">"Loss during different epochs"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell" data-executetime="{&quot;start_time&quot;:&quot;2023-05-15T12:54:13.814027Z&quot;,&quot;end_time&quot;:&quot;2023-05-15T12:54:14.394993Z&quot;}" data-execution_count="40">
+<div class="cell" data-executetime="{&quot;start_time&quot;:&quot;2023-05-15T12:54:13.814027Z&quot;,&quot;end_time&quot;:&quot;2023-05-15T12:54:14.394993Z&quot;}" data-execution_count="20">
 <div class="sourceCode cell-code" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>est <span class="op">=</span> train_model(<span class="dv">200</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <p><img src="Post_01_files/figure-html/cell-21-output-1.png" class="img-fluid"></p>
@@ -509,7 +509,7 @@ tensor([0.2100])</code></pre>
 <li>Convert the true labels <span class="math inline">\(y\)</span> to a <code>ByteTensor</code> which takes the values <code>0</code> or <code>1</code> and compares them to the <code>label</code> list.</li>
 <li>Taking the mean returns a value between <span class="math inline">\(0\)</span> and <span class="math inline">\(1\)</span>, where <span class="math inline">\(1\)</span> stands for a perfect accuracy.</li>
 </ol>
-<div class="cell" data-executetime="{&quot;start_time&quot;:&quot;2023-05-15T12:54:26.640913Z&quot;,&quot;end_time&quot;:&quot;2023-05-15T12:54:26.669836Z&quot;}" data-execution_count="41">
+<div class="cell" data-executetime="{&quot;start_time&quot;:&quot;2023-05-15T12:54:26.640913Z&quot;,&quot;end_time&quot;:&quot;2023-05-15T12:54:26.669836Z&quot;}" data-execution_count="21">
 <div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>yhat <span class="op">=</span> model(data_2.x)</span>
 <span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>label <span class="op">=</span> yhat <span class="op">&gt;</span> <span class="fl">0.5</span></span>
 <span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Accuracy: "</span>,torch.mean((label<span class="op">==</span>data_2.y.<span class="bu">type</span>(torch.ByteTensor)).<span class="bu">type</span>(torch.<span class="bu">float</span>)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -520,7 +520,7 @@ tensor([0.2100])</code></pre>
 </section>
 <section id="summary" class="level2">
 <h2 class="anchored" data-anchor-id="summary">Summary</h2>
-<p>In this short introduction, we reviewed logistic regression and learned how to implement it using the <code>PyTorch</code> framework. Additionally, we familiarised ourselves with the binary cross-entropy loss and learned how to train a simple model. In the next post, we’ll take a closer look at (stochastic) gradient descent and the softmax algorithm.</p>
+<p>In this short introduction, we reviewed logistic regression and learned how to implement it using the <code>PyTorch</code> framework. Additionally, we familiarised ourselves with the binary cross-entropy loss and learned how to train a simple model using (stochastic) gradient descent. In the next post, we’ll take a closer look at gradient descent in one dimension.</p>
 
 
 </section>

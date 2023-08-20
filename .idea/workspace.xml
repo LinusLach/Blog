@@ -4,34 +4,55 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="db237bed-056c-46b5-9347-48af7a618605" name="Changes" comment="Fixed js plots">
-      <change afterPath="$PROJECT_DIR$/_site/posts/post-with-code/Pytorch/Post_03.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/_site/posts/post-with-code/Pytorch/Post_03_files/figure-html/cell-10-output-3.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/_site/posts/post-with-code/Pytorch/Post_03_files/figure-html/cell-13-output-1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/_site/posts/post-with-code/Pytorch/Post_03_files/figure-html/cell-20-output-1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/_site/posts/post-with-code/Pytorch/Post_03_files/figure-html/cell-22-output-1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/_site/posts/post-with-code/Pytorch/Post_03_files/figure-html/cell-23-output-2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/_site/posts/post-with-code/Pytorch/Post_03_files/figure-html/cell-27-output-1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/_site/posts/post-with-code/Pytorch/Post_03_files/figure-html/cell-31-output-1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/_site/posts/post-with-code/Pytorch/Post_03_files/figure-html/cell-5-output-1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/_site/posts/post-with-code/Pytorch/gd_1d_xquartic_armijo.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/_site/posts/post-with-code/Pytorch/gd_1d_xquartic_lr052.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/_site/posts/post-with-code/Pytorch/gd_1d_xquartic_lr079.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/posts/post-with-code/Pytorch/gd_1d_xquartic_armijo.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/posts/post-with-code/Pytorch/gd_1d_xquartic_lr052.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/posts/post-with-code/Pytorch/gd_1d_xquartic_lr079.html" afterDir="false" />
+    <list default="true" id="db237bed-056c-46b5-9347-48af7a618605" name="Changes" comment="Post02 Draft">
+      <change afterPath="$PROJECT_DIR$/_site/posts/post-with-code/Pytorch/Post_02_files/figure-html/cell-11-output-2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/_site/posts/post-with-code/Pytorch/Post_02_files/figure-html/cell-12-output-2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/_site/posts/post-with-code/Pytorch/post02.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/posts/post-with-code/Pytorch/post02.PNG" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/_site/blog.html" beforeDir="false" afterPath="$PROJECT_DIR$/_site/blog.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_site/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/_site/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_site/listings.json" beforeDir="false" afterPath="$PROJECT_DIR$/_site/listings.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_site/posts/post-with-code/Pytorch/Post_01.html" beforeDir="false" afterPath="$PROJECT_DIR$/_site/posts/post-with-code/Pytorch/Post_01.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_site/posts/post-with-code/Pytorch/Post_01_files/figure-html/cell-10-output-1.png" beforeDir="false" afterPath="$PROJECT_DIR$/_site/posts/post-with-code/Pytorch/Post_01_files/figure-html/cell-10-output-1.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_site/posts/post-with-code/Pytorch/Post_01_files/figure-html/cell-13-output-1.png" beforeDir="false" afterPath="$PROJECT_DIR$/_site/posts/post-with-code/Pytorch/Post_01_files/figure-html/cell-13-output-1.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_site/posts/post-with-code/Pytorch/Post_01_files/figure-html/cell-17-output-1.png" beforeDir="false" afterPath="$PROJECT_DIR$/_site/posts/post-with-code/Pytorch/Post_01_files/figure-html/cell-17-output-1.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_site/posts/post-with-code/Pytorch/Post_01_files/figure-html/cell-21-output-1.png" beforeDir="false" afterPath="$PROJECT_DIR$/_site/posts/post-with-code/Pytorch/Post_01_files/figure-html/cell-21-output-1.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_site/posts/post-with-code/Pytorch/Post_01_files/figure-html/cell-21-output-2.png" beforeDir="false" afterPath="$PROJECT_DIR$/_site/posts/post-with-code/Pytorch/Post_01_files/figure-html/cell-21-output-2.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_site/posts/post-with-code/Pytorch/Post_01_files/figure-html/cell-6-output-1.png" beforeDir="false" afterPath="$PROJECT_DIR$/_site/posts/post-with-code/Pytorch/Post_01_files/figure-html/cell-6-output-1.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_site/posts/post-with-code/Pytorch/Post_01_files/figure-html/cell-8-output-1.png" beforeDir="false" afterPath="$PROJECT_DIR$/_site/posts/post-with-code/Pytorch/Post_01_files/figure-html/cell-8-output-1.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/_site/posts/post-with-code/Pytorch/Post_02.html" beforeDir="false" afterPath="$PROJECT_DIR$/_site/posts/post-with-code/Pytorch/Post_02.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_site/posts/post-with-code/Pytorch/Post_03.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_site/posts/post-with-code/Pytorch/Post_03_files/figure-html/cell-10-output-3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_site/posts/post-with-code/Pytorch/Post_03_files/figure-html/cell-13-output-1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_site/posts/post-with-code/Pytorch/Post_03_files/figure-html/cell-20-output-1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_site/posts/post-with-code/Pytorch/Post_03_files/figure-html/cell-22-output-1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_site/posts/post-with-code/Pytorch/Post_03_files/figure-html/cell-23-output-2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_site/posts/post-with-code/Pytorch/Post_03_files/figure-html/cell-27-output-1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_site/posts/post-with-code/Pytorch/Post_03_files/figure-html/cell-31-output-1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_site/posts/post-with-code/Pytorch/Post_03_files/figure-html/cell-5-output-1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_site/posts/post-with-code/Pytorch/gd_1d_xquartic.html" beforeDir="false" afterPath="$PROJECT_DIR$/_site/posts/post-with-code/Pytorch/gd_1d_xquartic.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_site/posts/post-with-code/Pytorch/gd_1d_xquartic_armijo.html" beforeDir="false" afterPath="$PROJECT_DIR$/_site/posts/post-with-code/Pytorch/gd_1d_xquartic_armijo.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/_site/posts/post-with-code/Pytorch/gd_1d_xquartic_lr01.html" beforeDir="false" afterPath="$PROJECT_DIR$/_site/posts/post-with-code/Pytorch/gd_1d_xquartic_lr01.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/_site/posts/post-with-code/Pytorch/gd_1d_xquartic_lr04.html" beforeDir="false" afterPath="$PROJECT_DIR$/_site/posts/post-with-code/Pytorch/gd_1d_xquartic_lr04.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_site/posts/post-with-code/Pytorch/gd_1d_xquartic_lr052.html" beforeDir="false" afterPath="$PROJECT_DIR$/_site/posts/post-with-code/Pytorch/gd_1d_xquartic_lr052.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_site/posts/post-with-code/Pytorch/gd_1d_xquartic_lr079.html" beforeDir="false" afterPath="$PROJECT_DIR$/_site/posts/post-with-code/Pytorch/gd_1d_xquartic_lr079.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/_site/posts/post-with-code/Pytorch/gd_1d_xsq.html" beforeDir="false" afterPath="$PROJECT_DIR$/_site/posts/post-with-code/Pytorch/gd_1d_xsq.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/_site/search.json" beforeDir="false" afterPath="$PROJECT_DIR$/_site/search.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.qmd" beforeDir="false" afterPath="$PROJECT_DIR$/index.qmd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/posts/post-with-code/Pytorch/Post_01.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/posts/post-with-code/Pytorch/Post_01.ipynb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/posts/post-with-code/Pytorch/Post_02.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/posts/post-with-code/Pytorch/Post_02.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/posts/post-with-code/Pytorch/Post_03.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/posts/post-with-code/Pytorch/Post_03.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/posts/post-with-code/Pytorch/Post_03.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/posts/post-with-code/Pytorch/gd_1d_xquartic.html" beforeDir="false" afterPath="$PROJECT_DIR$/posts/post-with-code/Pytorch/gd_1d_xquartic.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/posts/post-with-code/Pytorch/gd_1d_xquartic_armijo.html" beforeDir="false" afterPath="$PROJECT_DIR$/posts/post-with-code/Pytorch/gd_1d_xquartic_armijo.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/posts/post-with-code/Pytorch/gd_1d_xquartic_lr01.html" beforeDir="false" afterPath="$PROJECT_DIR$/posts/post-with-code/Pytorch/gd_1d_xquartic_lr01.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/posts/post-with-code/Pytorch/gd_1d_xquartic_lr04.html" beforeDir="false" afterPath="$PROJECT_DIR$/posts/post-with-code/Pytorch/gd_1d_xquartic_lr04.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/posts/post-with-code/Pytorch/gd_1d_xquartic_lr052.html" beforeDir="false" afterPath="$PROJECT_DIR$/posts/post-with-code/Pytorch/gd_1d_xquartic_lr052.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/posts/post-with-code/Pytorch/gd_1d_xquartic_lr079.html" beforeDir="false" afterPath="$PROJECT_DIR$/posts/post-with-code/Pytorch/gd_1d_xquartic_lr079.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/posts/post-with-code/Pytorch/gd_1d_xsq.html" beforeDir="false" afterPath="$PROJECT_DIR$/posts/post-with-code/Pytorch/gd_1d_xsq.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/posts/post-with-code/Pytorch/images/output.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/posts/post-with-code/Pytorch/images/output_ivgrid.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/posts/post-with-code/Pytorch/images/output_xqaurtic_lr01.png" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -157,7 +178,10 @@
       <workItem from="1690796549921" duration="1577000" />
       <workItem from="1692099697928" duration="11766000" />
       <workItem from="1692200825445" duration="7300000" />
-      <workItem from="1692252632105" duration="27739000" />
+      <workItem from="1692252632105" duration="28384000" />
+      <workItem from="1692383014772" duration="2672000" />
+      <workItem from="1692423206258" duration="15516000" />
+      <workItem from="1692523375755" duration="3441000" />
     </task>
     <task id="LOCAL-00001" summary="Update_20230126_01">
       <created>1674742098540</created>
@@ -341,7 +365,14 @@
       <option name="project" value="LOCAL" />
       <updated>1692260567552</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="Post02 Draft">
+      <created>1692295881418</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1692295881418</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -379,6 +410,7 @@
     <MESSAGE value="Added grid search for 2d gradient descent" />
     <MESSAGE value="Added initial adam implementation" />
     <MESSAGE value="Fixed js plots" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixed js plots" />
+    <MESSAGE value="Post02 Draft" />
+    <option name="LAST_COMMIT_MESSAGE" value="Post02 Draft" />
   </component>
 </project>

@@ -44,6 +44,7 @@
 
     let xAxis = d3.axisBottom(xScale)
     let yAxis = d3.axisLeft(yScale)
+
     svg.append("g")
       .attr("transform", `translate(0,${height})`)
       .call(xAxis)
@@ -65,7 +66,7 @@
       .attr("y", -35)
       .attr("x", -height / 2)
       .attr("transform", "rotate(-90)")
-      .html("y")
+      .html("function value")
 
     const sliderContainer = d3.select("body")
       .append("div")

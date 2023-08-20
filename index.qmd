@@ -15,7 +15,7 @@ about:
 ## Hello!
 I’m Linus. [UUlm](https://www.uni-ulm.de/en/mawi/mathematics-and-economics/) math graduate who is currently pursuing a PhD in statistics at [UNIA](https://www.uni-augsburg.de/de/fakultaet/wiwi/prof/stat/okhrin/team/linus-lach/). I'm interested in stochastics, statistics, and optimization and their applications in economics and computer science.
 
-I mainly code with R and Python, but also use other tools like SQL, MongoDB, HTML and JS to help me with my projects.
+I mainly code with R and Python, but also use other tools like SQL, MongoDB, HTML, and JS to help me with my projects.
 
 My current plan is to write a few smaller blog posts on topics I learned about in different courses and add more context or illustrations in order to reach a broader audience.
 
